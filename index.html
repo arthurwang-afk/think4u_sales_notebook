@@ -1088,6 +1088,15 @@ body {
               </tr>
             </table>
           </div>
+          <!-- 導入策略話術 -->
+          <div style="padding:12px 24px 16px;border-top:1px solid var(--border);">
+            <div style="font-size:12px;font-weight:500;color:var(--text-faint);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">導入策略話術 <span style="font-size:11px;color:var(--accent);text-transform:none;letter-spacing:0;">— 降低客戶決策門檻</span></div>
+            <div style="background:var(--green-light,#e8f7f2);border-left:3px solid var(--accent);padding:10px 14px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-size:12px;color:var(--text-muted);line-height:1.7;">
+              <strong style="color:var(--accent-dark,#085041);">「建議先買基本版，用了一段時間再做客製。」</strong><br>
+              客戶通常不清楚自己真正需要什麼客製，先用標準版實際跑流程，才會發現哪些地方不夠。等收集到真實使用意見，再做第二階段客製——這樣最划算，不用一開始就花大量客製費用在猜測需求。<br>
+              <span style="color:var(--text-faint);font-style:italic;">實際案例：凱鈿先導入第一階段，使用後才發現有些情境需要客製，隨即啟動第二階段。現在運作順暢。</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1226,7 +1235,7 @@ body {
               <div class="faq-q-text">對方回傳的是掃描檔，法務要怎麼做版本比對？ <span class="faq-src src-elite">精英人力</span></div>
             </div>
             <div class="faq-a">
-              系統有 OCR 功能，可以把掃描 PDF 轉成文字。上傳後系統跑 OCR（約幾分鐘），完成後發 Email 通知，點連結進來可看到轉出的文字並做人工校正，校正完就可以用比對工具做版本差異比對。
+              系統有 OCR 功能，可以把掃描 PDF 轉成文字。上傳後系統跑 OCR（約幾分鐘），完成後發 Email 通知，點連結進來可看到轉出的文字並做人工校正，校正完就可以用比對工具做版本差異比對。常見的辨識錯誤可以預先設定，系統掃完後自動置換，減少重複性的人工校正工作。
             </div>
           </div>
 
@@ -1262,6 +1271,26 @@ body {
             </div>
           </div>
 
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">合約到期或需要履約時，系統會通知嗎？ <span class="faq-src src-software">軟體公會</span><span class="faq-src src-kgi">凱基人壽</span></div>
+            </div>
+            <div class="faq-a">
+              有「智慧提醒」功能。在申請合約時填入到期日、履約日期等欄位，系統根據你設定的邏輯（例如到期前 30 天）自動發 Email 提醒相關人員。也支援自動續約提醒，確保合約不會在不知情的情況下過期或漏跟進。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">怎麼防止同一份採購單對應的合約被重複申請送件？ <span class="faq-src src-kgi">凱基人壽</span></div>
+            </div>
+            <div class="faq-a">
+              可以在系統中設定哪些欄位條件完全相同就視為重複，自動擋下不讓送件。掃描檔的情況可結合 OCR 先轉文字再做判斷。具體的欄位邏輯需要你們提供更詳細的作業情境，我們才能設定最合適的規則。
+            </div>
+          </div>
+
           <!-- ─── 系統整合類 ─── -->
           <div class="faq-section-title">系統整合類</div>
 
@@ -1292,6 +1321,26 @@ body {
             </div>
             <div class="faq-a">
               點點簽整合已完成。另外也正在整合 DocuSign（全球市佔率最高的電子簽章廠商），因為很多大企業指定要用。已整合點點簽的客戶，可以直接在 iLegL 流程中觸發點點簽，無需切換系統。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">系統有沒有管理報表？主管可以看整體合約狀況嗎？ <span class="faq-src src-kgi">凱基人壽</span></div>
+            </div>
+            <div class="faq-a">
+              有。查詢結果都可以匯出 Excel，方便自行整理。進階需求可以使用「自定報表」功能，自訂要看的欄位、篩選條件和彙整方式。儀表板也有待審核件數、逾期件數等即時統計，主管可以直接掌握整體合約進度。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">我們集團有多家子公司，可以用同一套系統統一管理嗎？ <span class="faq-src src-software">軟體公會</span></div>
+            </div>
+            <div class="faq-a">
+              有集團版方案。高階主管可以跨公司查看所有合約，各子公司之間保持獨立的合約編號和審核流程，互不干擾。子公司需另外加購，費用根據子公司數量另計。
             </div>
           </div>
 
