@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iLegL 新人業務實戰手冊</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #534AB7;
+  --purple-light: #EEEDFE;
+  --purple-mid: #AFA9EC;
+  --purple-dark: #3C3489;
+  --teal: #1D9E75;
+  --teal-light: #E1F5EE;
+  --teal-dark: #085041;
+  --amber: #BA7517;
+  --amber-light: #FAEEDA;
+  --amber-dark: #633806;
+  --blue: #378ADD;
+  --blue-light: #E6F1FB;
+  --blue-dark: #0C447C;
+  --pink: #D4537E;
+  --pink-light: #FBEAF0;
+  --pink-dark: #72243E;
+  --red-light: #FCEBEB;
+  --red: #A32D2D;
+  --gray-50: #F8F7F4;
+  --gray-100: #F1EFE8;
+  --gray-200: #D3D1C7;
+  --gray-400: #888780;
+  --gray-600: #5F5E5A;
+  --gray-800: #2C2C2A;
+  --text: #1a1917;
+  --text-muted: #6b6a66;
+  --text-faint: #9e9d99;
+  --border: rgba(0,0,0,0.08);
+  --border-hover: rgba(0,0,0,0.15);
+  --bg: #FAFAF8;
+  --card-bg: #FFFFFF;
+  --radius: 12px;
+  --radius-sm: 6px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ── TOP HEADER ── */
+.site-header {
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+.site-header-left { display: flex; align-items: center; gap: 12px; }
+.logo-mark {
+  width: 32px; height: 32px;
+  background: var(--purple);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 14px; font-weight: 700;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: -0.5px;
+}
+.site-name { font-size: 15px; font-weight: 500; color: var(--text); }
+.site-version {
+  font-size: 11px; padding: 2px 8px;
+  border-radius: 20px;
+  background: var(--purple-light);
+  color: var(--purple-dark);
+  font-family: 'DM Mono', monospace;
+}
+.header-right { display: flex; align-items: center; gap: 8px; }
+.drive-btn {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--gray-50);
+  color: var(--text-muted);
+  font-size: 12px;
+  text-decoration: none;
+  font-family: 'Noto Sans TC', sans-serif;
+  transition: all 0.15s;
+  cursor: pointer;
+}
+.drive-btn:hover { background: var(--card-bg); border-color: var(--border-hover); color: var(--text); }
+.drive-icon { font-size: 13px; }
+
+/* ── LAYOUT ── */
+.layout { display: flex; max-width: 1100px; margin: 0 auto; }
+
+/* ── SIDEBAR ── */
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  padding: 2rem 1rem 2rem 1.5rem;
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+}
+.sidebar-label {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  margin-bottom: 10px;
+  padding-left: 4px;
+}
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+  margin-bottom: 2px;
+}
+.sidebar-item:hover { background: var(--gray-100); color: var(--text); }
+.sidebar-item.active { background: var(--purple-light); color: var(--purple-dark); font-weight: 500; }
+.sidebar-num {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+.sidebar-divider { height: 1px; background: var(--border); margin: 12px 0; }
+
+/* ── MAIN CONTENT ── */
+.main { flex: 1; padding: 2rem 2rem 2rem 1.5rem; max-width: 820px; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 2.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 200px; height: 200px;
+  background: var(--purple-light);
+  border-radius: 50%;
+  transform: translate(60px, -80px);
+  opacity: 0.5;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px;
+  background: var(--purple-light);
+  color: var(--purple-dark);
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.hero h1 { font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.hero p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem; }
+.hero-stats { display: flex; gap: 2rem; }
+.hero-stat { }
+.hero-stat-num { font-size: 22px; font-weight: 700; color: var(--purple); font-family: 'DM Mono', monospace; }
+.hero-stat-label { font-size: 11px; color: var(--text-faint); margin-top: 2px; }
+
+/* ── CHAPTER SECTIONS ── */
+.chapter-section { margin-bottom: 1.5rem; }
+
+.chapter-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.chapter-card:hover { border-color: var(--border-hover); }
+
+.chapter-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 24px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+}
+.chapter-header:hover { background: var(--gray-50); }
+
+.ch-num {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700;
+  flex-shrink: 0;
+  font-family: 'DM Mono', monospace;
+}
+.ch-info { flex: 1; min-width: 0; }
+.ch-title { font-size: 15px; font-weight: 500; color: var(--text); }
+.ch-desc { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.ch-sources { display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
+.src-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--gray-50);
+  color: var(--text-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.15s;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.src-badge:hover { background: var(--card-bg); border-color: var(--border-hover); color: var(--text); }
+.ch-arrow {
+  color: var(--text-faint);
+  font-size: 12px;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+.ch-arrow.open { transform: rotate(90deg); }
+
+.chapter-body {
+  border-top: 1px solid var(--border);
+  display: none;
+}
+.chapter-body.open { display: block; }
+
+.source-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.source-strip-label { font-size: 11px; color: var(--text-faint); }
+.doc-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all 0.15s;
+}
+.doc-chip:hover { border-color: var(--border-hover); color: var(--text); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.doc-chip.disabled { opacity: 0.4; pointer-events: none; }
+
+.items-list { padding: 8px 0; }
+.item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.12s;
+}
+.item-row:last-child { border-bottom: none; }
+.item-row:hover { background: var(--gray-50); }
+.item-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+.item-content { flex: 1; min-width: 0; }
+.item-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.item-note { font-size: 12px; color: var(--text-muted); margin-top: 3px; line-height: 1.55; }
+.item-slide {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--text-faint);
+  background: var(--gray-100);
+  padding: 1px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+/* tags */
+.tag {
+  font-size: 10px; font-weight: 500;
+  padding: 2px 7px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.tag-t { background: var(--amber-light); color: var(--amber-dark); }
+.tag-i { background: var(--blue-light); color: var(--blue-dark); }
+.tag-c { background: var(--teal-light); color: var(--teal-dark); }
+.tag-w { background: var(--red-light); color: var(--red); }
+.tag-p { background: var(--gray-100); color: var(--gray-600); }
+
+/* ── CHECKLIST ── */
+.checklist-section { padding: 12px 24px 16px; }
+.checklist-group { margin-bottom: 16px; }
+.checklist-group:last-child { margin-bottom: 0; }
+.checklist-group-title {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-faint);
+  margin-bottom: 8px;
+}
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+.check-item:last-child { border-bottom: none; }
+.check-item:hover .check-label { color: var(--text); }
+.check-box {
+  width: 16px; height: 16px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+  background: white;
+}
+.check-box.checked { background: var(--pink); border-color: var(--pink); }
+.check-box.checked::after { content: '✓'; color: white; font-size: 10px; }
+.check-label { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+.check-label.checked { text-decoration: line-through; color: var(--text-faint); }
+
+/* ── FAQ ── */
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+}
+.faq-item:last-child { border-bottom: none; }
+.faq-q {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.faq-q-icon {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--blue-light);
+  color: var(--blue-dark);
+  font-size: 10px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.faq-q-text { font-size: 13px; font-weight: 500; color: var(--text); }
+.faq-a {
+  margin-left: 30px;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  background: var(--gray-50);
+  border-left: 3px solid var(--blue);
+  padding: 8px 12px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.faq-a .step { font-weight: 500; color: var(--blue-dark); }
+.faq-pending {
+  margin-left: 30px;
+  font-size: 12px;
+  color: var(--text-faint);
+  font-style: italic;
+  background: var(--gray-100);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── PRICE TABLE ── */
+.price-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 16px 24px;
+}
+.price-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.price-card.recommended { border-color: var(--purple-mid); border-width: 2px; }
+.price-card-header { padding: 12px 16px; }
+.price-card-name { font-size: 13px; font-weight: 700; color: var(--text); }
+.price-card-price {
+  margin-top: 4px;
+  display: flex; align-items: baseline; gap: 6px;
+}
+.price-num { font-size: 22px; font-weight: 700; font-family: 'DM Mono', monospace; }
+.price-orig { font-size: 12px; color: var(--text-faint); text-decoration: line-through; }
+.price-rec-badge {
+  font-size: 10px; padding: 2px 8px;
+  background: var(--purple); color: white;
+  border-radius: 20px; font-weight: 500;
+  margin-top: 6px; display: inline-block;
+}
+.price-features { padding: 0 16px 12px; }
+.price-feature {
+  display: flex; align-items: center; gap: 7px;
+  padding: 5px 0;
+  font-size: 12px; color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+.price-feature:last-child { border-bottom: none; }
+.pf-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+.price-plus { font-size: 11px; color: var(--purple); font-weight: 500; background: var(--purple-light); padding: 1px 6px; border-radius: 3px; }
+
+/* ── MODULE TABLE ── */
+.module-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.module-table th {
+  text-align: left;
+  padding: 8px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--border);
+}
+.module-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  vertical-align: top;
+}
+.module-table tr:last-child td { border-bottom: none; }
+.module-table tr:hover td { background: var(--gray-50); }
+.module-name { font-weight: 500; color: var(--text); }
+.module-price {
+  font-family: 'DM Mono', monospace;
+  color: var(--amber-dark);
+  white-space: nowrap;
+}
+
+/* ── PENDING NOTICE ── */
+.pending-notice {
+  margin: 16px 24px;
+  padding: 12px 16px;
+  background: var(--amber-light);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--amber);
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.pending-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.pending-text { font-size: 12px; color: var(--amber-dark); line-height: 1.55; }
+.pending-text strong { font-weight: 500; }
+
+/* ── FORMULA BLOCKS ── */
+.formula-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; padding: 16px 24px; }
+.formula-step {
+  text-align: center;
+  padding: 12px 8px;
+  position: relative;
+}
+.formula-step:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-faint);
+  font-size: 14px;
+}
+.formula-letter {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  margin: 0 auto 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 700;
+  font-family: 'DM Mono', monospace;
+}
+.formula-word { font-size: 12px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
+.formula-desc { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+
+.cars-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 16px 24px; }
+.cars-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+.cars-letter {
+  font-size: 18px; font-weight: 700;
+  font-family: 'DM Mono', monospace;
+  margin-bottom: 4px;
+}
+.cars-word { font-size: 12px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
+.cars-desc { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+
+.why-steps { padding: 12px 24px 16px; }
+.why-step {
+  display: flex;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.why-step:last-child { border-bottom: none; }
+.why-num {
+  width: 24px; height: 24px;
+  border-radius: 6px;
+  background: var(--purple-light);
+  color: var(--purple-dark);
+  font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+  font-family: 'DM Mono', monospace;
+}
+.why-content { }
+.why-title { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+.why-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+/* ── BOUNDARY TABLE ── */
+.boundary-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.boundary-table th {
+  text-align: left; padding: 8px 14px;
+  font-size: 11px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--text-faint); background: var(--gray-50);
+  border-bottom: 1px solid var(--border);
+}
+.boundary-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  color: var(--text-muted);
+}
+.boundary-table tr:last-child td { border-bottom: none; }
+.b-standard { color: var(--teal-dark); font-weight: 500; }
+.b-custom { color: var(--red); font-weight: 500; }
+
+/* ── BOTTOM NAV ── */
+.bottom-bar {
+  background: var(--card-bg);
+  border-top: 1px solid var(--border);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 2rem;
+}
+.bottom-note {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: var(--text-muted);
+}
+.bottom-icon {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--amber-light);
+  color: var(--amber-dark);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .main { padding: 1rem; }
+  .price-compare { grid-template-columns: 1fr; }
+  .formula-grid { grid-template-columns: repeat(2, 1fr); }
+  .chapter-header { flex-wrap: wrap; }
+  .ch-sources { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP HEADER -->
+<header class="site-header">
+  <div class="site-header-left">
+    <div class="logo-mark">iL</div>
+    <span class="site-name">iLegL 新人業務實戰手冊</span>
+    <span class="site-version">v1.0</span>
+  </div>
+  <div class="header-right">
+    <a class="drive-btn" href="https://drive.google.com/drive/u/0/folders/12lx8W87J6aN8077rKUbbJFiOrCWeAUJm" target="_blank">
+      <span class="drive-icon">📁</span> 全部原始文件
+    </a>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sidebar-label">章節導覽</div>
+    <a class="sidebar-item" href="#hero">
+      <span>📌</span> 關於這份手冊
+    </a>
+    <div class="sidebar-divider"></div>
+    <a class="sidebar-item" href="#ch1">
+      <span class="sidebar-num" style="background:#EEEDFE;color:#3C3489">1</span> 你在賣什麼
+    </a>
+    <a class="sidebar-item" href="#ch2">
+      <span class="sidebar-num" style="background:#E1F5EE;color:#085041">2</span> 怎麼賣
+    </a>
+    <a class="sidebar-item" href="#ch3">
+      <span class="sidebar-num" style="background:#FAEEDA;color:#633806">3</span> 價格怎麼談
+    </a>
+    <a class="sidebar-item" href="#ch4">
+      <span class="sidebar-num" style="background:#E6F1FB;color:#0C447C">4</span> 客戶 FAQ
+    </a>
+    <a class="sidebar-item" href="#ch5">
+      <span class="sidebar-num" style="background:#FBEAF0;color:#72243E">5</span> 實戰清單
+    </a>
+    <div class="sidebar-divider"></div>
+    <a class="sidebar-item" href="https://arthurwang-afk.github.io/tiffany_sales_framework/" target="_blank">
+      <span>🌐</span> Tiffany 銷售框架
+    </a>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HERO -->
+    <div class="hero" id="hero">
+      <div class="hero-tag">🚀 業務入職必讀</div>
+      <h1>iLegL 新人業務實戰手冊</h1>
+      <p>整合五份產品文件與 Tiffany 銷售框架，從「了解公司」到「實戰上場」，每一步都有話術可用、有原始文件可查。</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">5</div>
+          <div class="hero-stat-label">核心章節</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">5</div>
+          <div class="hero-stat-label">原始文件連結</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">20+</div>
+          <div class="hero-stat-label">可用話術模板</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">FAQ</div>
+          <div class="hero-stat-label">待補（會議紀錄）</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ CHAPTER 1 ═══════════ -->
+    <div class="chapter-section" id="ch1">
+      <div class="chapter-card">
+        <div class="chapter-header" onclick="toggleChapter('ch1')">
+          <div class="ch-num" style="background:#EEEDFE;color:#3C3489">01</div>
+          <div class="ch-info">
+            <div class="ch-title">你在賣什麼</div>
+            <div class="ch-desc">公司定位・五大競爭優勢・客戶產業地圖・成功案例</div>
+          </div>
+          <div class="ch-sources">
+            <a class="src-badge" href="https://drive.google.com/file/d/1U_N1dLRJSta5FNtRaQKBjJv9XA_R1ye_/view" target="_blank" onclick="event.stopPropagation()">📄 系統特色簡介</a>
+          </div>
+          <div class="ch-arrow" id="ch1-arrow">▶</div>
+        </div>
+        <div class="chapter-body" id="ch1-body">
+          <div class="source-strip">
+            <span class="source-strip-label">來源：</span>
+            <a class="doc-chip" href="https://drive.google.com/file/d/1U_N1dLRJSta5FNtRaQKBjJv9XA_R1ye_/view" target="_blank">📄 iLegL 系統特色簡介展示版 v6.0</a>
+          </div>
+          <div class="items-list">
+            <div class="item-row">
+              <div class="item-dot" style="background:#534AB7"></div>
+              <div class="item-content">
+                <div class="item-title">一句話說清楚宏思科技是誰 <span class="tag tag-t">話術範本</span> <span class="item-slide">Slide 4, 7</span></div>
+                <div class="item-note">「成立 2006 年，20 年客製化系統導入經驗，服務超過 50 家大型企業，是勤業眾信 InnoCube 唯一外部合作夥伴。」</div>
+              </div>
+            </div>
+            <div class="item-row">
+              <div class="item-dot" style="background:#534AB7"></div>
+              <div class="item-content">
+                <div class="item-title">iLegL 解決什麼痛點 <span class="tag tag-t">數據佐證</span> <span class="item-slide">Slide 20</span></div>
+                <div class="item-note">Deloitte 統計：服務合約平均簽署時程 37 天、授權合約 74 天。哈佛商業評論：低效合約管理導致公司損失 5%~40% 價值。</div>
+              </div>
+            </div>
+            <div class="item-row">
+              <div class="item-dot" style="background:#534AB7"></div>
+              <div class="item-content">
+                <div class="item-title">五大競爭優勢 <span class="tag tag-t">話術範本</span> <span class="item-slide">Slide 7</span></div>
+                <div class="item-note">① 合作夥伴（勤業眾信）② 企業高度肯定（50+上市櫃試用，近滿分）③ 大型專案實績（銀行級）④ 豐富整合經驗 ⑤ 完整導入經驗</div>
+              </div>
+            </div>
+            <div class="item-row">
+              <div class="item-dot" style="background:#534AB7"></div>
+              <div class="item-content">
+                <div class="item-title">哪些產業客戶會買 <span class="tag tag-i">參考資料</span> <span class="item-slide">Slide 67</span></div>
+                <div class="item-note">金融（玉山銀行、統一證券）・航運（陽明海運）・能源（雲豹）・科技製造（朋程）・文創出版（天下雜誌）</div>
+              </div>
+            </div>
+            <div class="item-row">
+              <div class="item-dot" style="background:#534AB7"></div>
+              <div class="item-content">
+                <div class="item-title">三個可對客戶說的成功故事 <span class="tag tag-t">話術範本</span> <span class="item-slide">Slide 68~70</span></div>
+                <div class="item-note">
+                  <strong>客戶 A：</strong>全客製合約系統，從起案、審核、用印到歸檔全流程上線，降低法務作業成本。<br>
+                  <strong>客戶 B：</strong>導入前用 Email 往返合約，人員離職後案件斷線、版本混亂，導入系統後完全解決。<br>
+                  <strong>客戶 C：</strong>Email 審閱多、老闆掌握不了進度，導入後主管可統一查詢部門合約狀態。
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ CHAPTER 2 ═══════════ -->
+    <div class="chapter-section" id="ch2">
+      <div class="chapter-card">
+        <div class="chapter-header" onclick="toggleChapter('ch2')">
+          <div class="ch-num" style="background:#E1F5EE;color:#085041">02</div>
+          <div class="ch-info">
+            <div class="ch-title">怎麼賣</div>
+            <div class="ch-desc">T.A.R.E. 模型・開場話術・WHY 說服框架・競品應對</div>
+          </div>
+          <div class="ch-sources">
+            <a class="src-badge" href="https://arthurwang-afk.github.io/tiffany_sales_framework/" target="_blank" onclick="event.stopPropagation()">🌐 Tiffany 銷售框架</a>
+          </div>
+          <div class="ch-arrow" id="ch2-arrow">▶</div>
+        </div>
+        <div class="chapter-body" id="ch2-body">
+          <div class="source-strip">
+            <span class="source-strip-label">來源：</span>
+            <a class="doc-chip" href="https://arthurwang-afk.github.io/tiffany_sales_framework/" target="_blank">🌐 Tiffany 業務公式 — 可複製的銷售框架</a>
+          </div>
+
+          <!-- T.A.R.E. -->
+          <div style="padding:16px 24px 8px; border-bottom:1px solid var(--border);">
+            <div style="font-size:12px;font-weight:500;color:var(--text-faint);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;">T.A.R.E. 四階段模型</div>
+            <div class="formula-grid">
+              <div class="formula-step">
+                <div class="formula-letter" style="background:#EEEDFE;color:#3C3489">T</div>
+                <div class="formula-word">Timeline</div>
+                <div class="formula-desc">先說今天的安排分幾段</div>
+              </div>
+              <div class="formula-step">
+                <div class="formula-letter" style="background:#E1F5EE;color:#085041">A</div>
+                <div class="formula-word">Anchor</div>
+                <div class="formula-desc">五大理由建立核心優勢</div>
+              </div>
+              <div class="formula-step">
+                <div class="formula-letter" style="background:#FAEEDA;color:#633806">R</div>
+                <div class="formula-word">Respond</div>
+                <div class="formula-desc">即時精準處理客戶提問</div>
+              </div>
+              <div class="formula-step">
+                <div class="formula-letter" style="background:#FBEAF0;color:#72243E">E</div>
+                <div class="formula-word">Escalate</div>
+                <div class="formula-desc">確認下一步具體行動</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 開場話術 -->
+          <div class="items-list">
+            <div class="item-row">
+              <div class="item-dot" style="background:#1D9E75"></div>
+              <div class="item-content">
+                <div class="item-title">開場話術模板（可直接套用）<span class="tag tag-t">可複製</span></div>
+                <div class="item-note" style="background:var(--gray-50);padding:10px;border-radius:6px;margin-top:6px;border-left:3px solid var(--teal);">「今天的會議我規劃兩個段落：<strong>第一段 __ 分鐘</strong>，我會介紹___；<strong>第二段</strong>，我們針對你們的需求清單一起釐清。上次我們談到了___，今天我想讓你對___有更完整的了解。」<br><br>⚠️ 說「30分鐘」比說「上半段」有份量。一定要提到「上次」建立連續感。</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WHY 框架 -->
+          <div style="padding:12px 24px 4px;border-top:1px solid var(--border);">
+            <div style="font-size:12px;font-weight:500;color:var(--text-faint);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">WHY 框架：五大原因說服結構</div>
+            <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px;">原則：先說「原因」，再說「功能」，最後給「案例佐證」。不要列功能，要列理由。</div>
+          </div>
+          <div class="why-steps">
+            <div class="why-step">
+              <div class="why-num">1</div>
+              <div class="why-content">
+                <div class="why-title">功能完整度 → 讓客戶安心</div>
+                <div class="why-desc">「我們涵蓋合約全生命週期：起案、審核、用印、歸檔、履約，一個系統全包。」</div>
+              </div>
+            </div>
+            <div class="why-step">
+              <div class="why-num">2</div>
+              <div class="why-content">
+                <div class="why-title">公司可靠度 → 讓客戶放心</div>
+                <div class="why-desc">「20年・150+專案・勤業眾信唯一合作夥伴，我們不是新創。」</div>
+              </div>
+            </div>
+            <div class="why-step">
+              <div class="why-num">3</div>
+              <div class="why-content">
+                <div class="why-title">導入成功率 → 建立信任</div>
+                <div class="why-desc">「經歷銀行級客製，高標準資安與選商流程，在期限內成功上線。」</div>
+              </div>
+            </div>
+            <div class="why-step">
+              <div class="why-num">4</div>
+              <div class="why-content">
+                <div class="why-title">競品差異化 → 幫客戶決策</div>
+                <div class="why-desc">主動拿出比較表。定義競品是「不同的東西」而非「比較差的東西」：「DocuWare 適合通用型，我們是合約專業深度型。」</div>
+              </div>
+            </div>
+            <div class="why-step">
+              <div class="why-num">5</div>
+              <div class="why-content">
+                <div class="why-title">風險消除 → 讓客戶敢買</div>
+                <div class="why-desc">「通過 OWASP ZAP 弱點掃描、源碼掃描，提供完整資安報告。」</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- C.A.R.S. -->
+          <div style="padding:12px 24px 4px;border-top:1px solid var(--border);">
+            <div style="font-size:12px;font-weight:500;color:var(--text-faint);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;">C.A.R.S. 萬用應答法</div>
+          </div>
+          <div class="cars-grid">
+            <div class="cars-card">
+              <div class="cars-letter" style="color:#0C447C">C</div>
+              <div class="cars-word">Confirm</div>
+              <div class="cars-desc">先確認我理解了問題方向，再回答</div>
+            </div>
+            <div class="cars-card">
+              <div class="cars-letter" style="color:#085041">A</div>
+              <div class="cars-word">Answer</div>
+              <div class="cars-desc">給出現有規格的標準答案</div>
+            </div>
+            <div class="cars-card">
+              <div class="cars-letter" style="color:#633806">R</div>
+              <div class="cars-word">Range</div>
+              <div class="cars-desc">說明彈性空間（可客製路徑）</div>
+            </div>
+            <div class="cars-card">
+              <div class="cars-letter" style="color:#72243E">S</div>
+              <div class="cars-word">Suggest</div>
+              <div class="cars-desc">給一個具體建議或下一步行動</div>
+            </div>
+          </div>
+          <div style="padding:4px 24px 16px;">
+            <div style="font-size:12px;color:var(--text-muted);background:var(--gray-50);padding:10px;border-radius:6px;">⚠️ <strong>「做不到」永遠不是第一句話。</strong>先確認需求 → 給現有方案 → 再說擴充路徑。把限制包裝成「可評估的機會」，讓對方帶作業回去。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ CHAPTER 3 ═══════════ -->
+    <div class="chapter-section" id="ch3">
+      <div class="chapter-card">
+        <div class="chapter-header" onclick="toggleChapter('ch3')">
+          <div class="ch-num" style="background:#FAEEDA;color:#633806">03</div>
+          <div class="ch-info">
+            <div class="ch-title">價格怎麼談</div>
+            <div class="ch-desc">版本對照・加購模組使用情境・標準 vs 客製邊界</div>
+          </div>
+          <div class="ch-sources">
+            <a class="src-badge" href="https://drive.google.com/file/d/12DWyRWi5Q3mdZM3dW09HO6GOJ4I1m2FG/view" target="_blank" onclick="event.stopPropagation()">📄 報價方案</a>
+            <a class="src-badge" href="https://drive.google.com/file/d/1e7tGM9XTisle3obN4vpPpf-Dx4kppxsu/view" target="_blank" onclick="event.stopPropagation()">📄 標準導入規格</a>
+          </div>
+          <div class="ch-arrow" id="ch3-arrow">▶</div>
+        </div>
+        <div class="chapter-body" id="ch3-body">
+          <div class="source-strip">
+            <span class="source-strip-label">來源：</span>
+            <a class="doc-chip" href="https://drive.google.com/file/d/12DWyRWi5Q3mdZM3dW09HO6GOJ4I1m2FG/view" target="_blank">📄 專案價格方案 V1.4</a>
+            <a class="doc-chip" href="https://drive.google.com/file/d/1e7tGM9XTisle3obN4vpPpf-Dx4kppxsu/view" target="_blank">📄 標準導入方案說明 V1.4</a>
+          </div>
+
+          <!-- 版本對照 -->
+          <div style="padding:14px 24px 4px;border-bottom:none;">
+            <div style="font-size:12px;font-weight:500;color:var(--text-faint);text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px;">產品版本對照</div>
+          </div>
+          <div class="price-compare">
+            <div class="price-card recommended">
+              <div class="price-card-header" style="background:#EEEDFE;">
+                <div class="price-card-name">基本版</div>
+                <div class="price-card-price">
+                  <span class="price-num" style="color:#534AB7">80萬</span>
+                  <span class="price-orig">定價120萬</span>
+                </div>
+                <div class="price-rec-badge">推薦首選</div>
+              </div>
+              <div class="price-features">
+                <div class="price-feature"><div class="pf-dot" style="background:#534AB7"></div>議約・審核・履約管理</div>
+                <div class="price-feature"><div class="pf-dot" style="background:#534AB7"></div>合約查詢（含本文）</div>
+                <div class="price-feature"><div class="pf-dot" style="background:#534AB7"></div>合約比對</div>
+                <div class="price-feature"><div class="pf-dot" style="background:#534AB7"></div>行動裝置支援</div>
+                <div class="price-feature"><div class="pf-dot" style="background:#534AB7"></div>多公司架構</div>
+                <div class="price-feature"><div class="pf-dot" style="background:#534AB7"></div>11個合約範本</div>
+                <div class="price-feature"><div class="pf-dot" style="background:#534AB7"></div>微軟 AD 串接</div>
+              </div>
+            </div>
+            <div class="price-card">
+              <div class="price-card-header" style="background:#F8F7F4;">
+                <div class="price-card-name">旗艦版</div>
+                <div class="price-card-price">
+                  <span class="price-num" style="color:#2C2C2A">200萬</span>
+                  <span class="price-orig">定價300萬</span>
+                </div>
+              </div>
+              <div class="price-features">
+                <div class="price-feature"><div class="pf-dot" style="background:#888780"></div>基本版全部功能</div>
+                <div class="price-feature"><span class="price-plus">+</span>多國語言（繁中/簡中/英）</div>
+                <div class="price-feature"><span class="price-plus">+</span>OCR 模組</div>
+                <div class="price-feature"><span class="price-plus">+</span>制訂合約範本</div>
+                <div class="price-feature"><span class="price-plus">+</span>智慧提醒</div>
+                <div class="price-feature"><span class="price-plus">+</span>合約產生器</div>
+                <div class="price-feature"><span class="price-plus">+</span>線上討論</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 費用加減表 -->
+          <div style="padding:8px 24px 4px;border-top:1px solid var(--border);">
+            <div style="font-size:12px;font-weight:500;color:var(--text-faint);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">費用組成（必要 + 可選）</div>
+            <table style="width:100%;border-collapse:collapse;font-size:12px;">
+              <tr style="background:var(--gray-50);">
+                <th style="text-align:left;padding:7px 12px;font-size:11px;font-weight:500;color:var(--text-faint);text-transform:uppercase;border-bottom:1px solid var(--border);">項目</th>
+                <th style="text-align:left;padding:7px 12px;font-size:11px;font-weight:500;color:var(--text-faint);text-transform:uppercase;border-bottom:1px solid var(--border);">優惠價</th>
+                <th style="text-align:left;padding:7px 12px;font-size:11px;font-weight:500;color:var(--text-faint);text-transform:uppercase;border-bottom:1px solid var(--border);">備註</th>
+              </tr>
+              <tr><td style="padding:8px 12px;border-bottom:1px solid var(--border);font-weight:500;">產品費 <span style="background:#FAEEDA;color:#633806;font-size:10px;padding:1px 6px;border-radius:3px;margin-left:4px;">必要</span></td><td style="padding:8px 12px;border-bottom:1px solid var(--border);font-family:'DM Mono',monospace;color:var(--amber-dark);">80~200萬</td><td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--text-muted);">基本版 or 旗艦版</td></tr>
+              <tr><td style="padding:8px 12px;border-bottom:1px solid var(--border);font-weight:500;">標準導入 <span style="background:#FAEEDA;color:#633806;font-size:10px;padding:1px 6px;border-radius:3px;margin-left:4px;">必要</span></td><td style="padding:8px 12px;border-bottom:1px solid var(--border);font-family:'DM Mono',monospace;color:var(--amber-dark);">25萬</td><td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--text-muted);">SSO整合・資安檢測・教育訓練</td></tr>
+              <tr><td style="padding:8px 12px;border-bottom:1px solid var(--border);">加購模組 <span style="background:var(--gray-100);color:var(--gray-600);font-size:10px;padding:1px 6px;border-radius:3px;margin-left:4px;">可選</span></td><td style="padding:8px 12px;border-bottom:1px solid var(--border);font-family:'DM Mono',monospace;color:var(--text-muted);">各 20~30萬</td><td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--text-muted);">見下方速查表</td></tr>
+              <tr><td style="padding:8px 12px;border-bottom:1px solid var(--border);">顧問時數 <span style="background:var(--gray-100);color:var(--gray-600);font-size:10px;padding:1px 6px;border-radius:3px;margin-left:4px;">可選</span></td><td style="padding:8px 12px;border-bottom:1px solid var(--border);font-family:'DM Mono',monospace;color:var(--text-muted);">$2,000/hr</td><td style="padding:8px 12px;border-bottom:1px solid var(--border);color:var(--text-muted);">最少40hr，無使用期限</td></tr>
+              <tr><td style="padding:8px 12px;">客製費 <span style="background:var(--gray-100);color:var(--gray-600);font-size:10px;padding:1px 6px;border-radius:3px;margin-left:4px;">可選</span></td><td style="padding:8px 12px;font-family:'DM Mono',monospace;color:var(--text-muted);">$15,000/人天</td><td style="padding:8px 12px;color:var(--text-muted);">超出標準規格才需要</td></tr>
+            </table>
+          </div>
+
+          <!-- 加購模組速查 -->
+          <div style="padding:14px 24px 4px;border-top:1px solid var(--border);">
+            <div style="font-size:12px;font-weight:500;color:var(--text-faint);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">加購模組使用情境速查 <span style="font-size:11px;color:var(--text-muted);text-transform:none;letter-spacing:0;">— 什麼樣的客戶需要？</span></div>
+          </div>
+          <div style="padding:0 24px 16px;">
+            <table class="module-table">
+              <tr><th>模組</th><th>優惠價</th><th>什麼客戶需要</th></tr>
+              <tr><td><span class="module-name">多國語言</span></td><td class="module-price">20萬</td><td>有外籍員工或跨國業務，需要介面語言切換</td></tr>
+              <tr><td><span class="module-name">OCR 模組</span></td><td class="module-price">20萬</td><td>有大量紙本舊合約掃描檔，想要能全文搜尋</td></tr>
+              <tr><td><span class="module-name">制訂合約範本</span></td><td class="module-price">20萬</td><td>有公版制式合約，不希望承辦人改到條文</td></tr>
+              <tr><td><span class="module-name">智慧提醒</span></td><td class="module-price">20萬</td><td>合約量大，怕到期/履約事項漏通知</td></tr>
+              <tr><td><span class="module-name">合約產生器（固定型）</span></td><td class="module-price">20萬</td><td>有5種以內固定範本，問答式快速產出合約</td></tr>
+              <tr><td><span class="module-name">合約產生器（訂制型）</span></td><td class="module-price">30萬</td><td>需要自訂問卷、多種範本類型的靈活組合</td></tr>
+              <tr><td><span class="module-name">線上討論</span></td><td class="module-price">20萬</td><td>合約需要跨部門多人協作討論內容</td></tr>
+              <tr><td><span class="module-name">整合電子簽章</span></td><td class="module-price">25萬</td><td>想要合約簽署全程電子化，取代紙本郵寄</td></tr>
+            </table>
+          </div>
+
+          <!-- 標準 vs 客製邊界 -->
+          <div style="padding:14px 24px 4px;border-top:1px solid var(--border);">
+            <div style="font-size:12px;font-weight:500;color:var(--text-faint);text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px;">標準 vs 客製 邊界 <span style="font-size:11px;color:var(--red);text-transform:none;letter-spacing:0;">— 業務千萬別隨口答應這些</span></div>
+          </div>
+          <div style="padding:8px 24px 16px;">
+            <table class="boundary-table">
+              <tr><th>需求類型</th><th style="color:var(--teal-dark)">✓ 標準（不需額外費用）</th><th style="color:var(--red)">✗ 客製（需另外報價）</th></tr>
+              <tr>
+                <td style="font-weight:500;">AD 整合</td>
+                <td><span class="b-standard">微軟 AD 串接 / LDAP</span></td>
+                <td><span class="b-custom">其他 SSO 方式</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;">人事組織整合</td>
+                <td><span class="b-standard">使用宏思提供的暫存資料表</span></td>
+                <td><span class="b-custom">直接串接 HR 系統 API</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;">審核流程</td>
+                <td><span class="b-standard">標準支援的條件與角色</span></td>
+                <td><span class="b-custom">特殊條件/自訂角色（如財務長）</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;">閱覽權限</td>
+                <td><span class="b-standard">員工看自己・主管看部門・法務看全公司</span></td>
+                <td><span class="b-custom">更細緻的欄位加密、隱碼控制</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;">導入範圍</td>
+                <td><span class="b-standard">一家公司</span></td>
+                <td><span class="b-custom">子公司需另外加購</span></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ CHAPTER 4 ═══════════ -->
+    <div class="chapter-section" id="ch4">
+      <div class="chapter-card">
+        <div class="chapter-header" onclick="toggleChapter('ch4')">
+          <div class="ch-num" style="background:#E6F1FB;color:#0C447C">04</div>
+          <div class="ch-info">
+            <div class="ch-title">客戶常見問題 FAQ</div>
+            <div class="ch-desc">C.A.R.S. 應答法・情境分類・標準回應話術</div>
+          </div>
+          <div class="ch-sources">
+            <a class="src-badge" href="https://arthurwang-afk.github.io/tiffany_sales_framework/" target="_blank" onclick="event.stopPropagation()">🌐 Tiffany 框架</a>
+          </div>
+          <div class="ch-arrow" id="ch4-arrow">▶</div>
+        </div>
+        <div class="chapter-body" id="ch4-body">
+          <div class="source-strip">
+            <span class="source-strip-label">來源：</span>
+            <a class="doc-chip" href="https://arthurwang-afk.github.io/tiffany_sales_framework/" target="_blank">🌐 Tiffany 框架應對技巧</a>
+            <span class="doc-chip disabled">📋 會議紀錄（待補）</span>
+          </div>
+          <div class="pending-notice">
+            <div class="pending-icon">⏳</div>
+            <div class="pending-text"><strong>FAQ 持續補充中：</strong>以下為已整理的部分情境。將根據會議紀錄音檔（精英人力・凱基人壽・軟體公會）補充更多真實問答。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">我們有日籍員工，系統支援日文嗎？</div>
+            </div>
+            <div class="faq-a">
+              <span class="step">① 確認需求：</span>「你的需求是介面日文化，還是合約內容需要翻譯，對嗎？」<br>
+              <span class="step">② 現有規格：</span>目前支援繁中、簡中、英文。<br>
+              <span class="step">③ 彈性空間：</span>日文可以加購（20萬），翻譯內容由你們提供。<br>
+              <span class="step">④ 下一步：</span>確認有幾位日籍使用者，評估是否值得加購。
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">可以自訂新的角色身份嗎？（如財務長）</div>
+            </div>
+            <div class="faq-a">
+              <span class="step">① 確認需求：</span>「你希望財務長可以在哪個審核環節介入？」<br>
+              <span class="step">② 現有規格：</span>目前角色設定涉及程式調整，未開放自行新增。<br>
+              <span class="step">③ 彈性空間：</span>有需求可以提出，宏思評估後報價客製費用。<br>
+              <span class="step">④ 下一步：</span>建議先購買 40 小時顧問時數，釐清具體需求後再評估。
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">資料閱覽可以限制到只有本人才看得到嗎？</div>
+            </div>
+            <div class="faq-a">
+              <span class="step">① 確認需求：</span>「是哪些欄位需要隱藏？是合約本文還是特定欄位？」<br>
+              <span class="step">② 現有規格：</span>標準是「員工看自己、主管看部門、法務看全公司」。<br>
+              <span class="step">③ 彈性空間：</span>更細緻的隱碼控制可透過客製化處理。<br>
+              <span class="step">④ 下一步：</span>告知哪些欄位要隱碼，我們評估客製方式與費用。
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">我們還在等高層的決策會議，不能現在決定…</div>
+            </div>
+            <div class="faq-a">
+              <span class="step">① 接受現狀：</span>「完全理解，這個決策規模確實需要高層確認。」<br>
+              <span class="step">② 填補等待：</span>試用帳號有在使用嗎？有沒有操作上的問題？<br>
+              <span class="step">③ 提供材料：</span>我今天會後把完整簡報加上價格方案一起給你，方便你提報。<br>
+              <span class="step">④ 設定觸點：</span>「高層會議後，你方便告訴我結果嗎？方便的話我們再安排正式 Demo。」
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">你們跟 DocuWare、其他競品有什麼不一樣？</div>
+            </div>
+            <div class="faq-a">
+              <span class="step">① 主動定義戰場：</span>「市場上大概三種選擇：通用文件管理型、輕量表單型、合約專業深度型——我們是第三種。」<br>
+              <span class="step">② 差異化定位：</span>DocuWare 適合通用型文件管理，我們專為合約設計，OCR 都針對合約掃描做優化、有文字校正機制。<br>
+              <span class="step">③ 引導決策：</span>「如果你的核心需求是合約審閱流程、履約管理、法務協作，我們是最合適的。」
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">價格類・IT整合類・其他情境</div>
+            </div>
+            <div class="faq-pending">⏳ 待補充——將從精英人力、凱基人壽、軟體公會等會議音檔中萃取真實問答後補入。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ CHAPTER 5 ═══════════ -->
+    <div class="chapter-section" id="ch5">
+      <div class="chapter-card">
+        <div class="chapter-header" onclick="toggleChapter('ch5')">
+          <div class="ch-num" style="background:#FBEAF0;color:#72243E">05</div>
+          <div class="ch-info">
+            <div class="ch-title">實戰清單</div>
+            <div class="ch-desc">每場重要業務會議前・中・後使用，勾選完成</div>
+          </div>
+          <div class="ch-sources">
+            <a class="src-badge" href="https://arthurwang-afk.github.io/tiffany_sales_framework/" target="_blank" onclick="event.stopPropagation()">🌐 Tiffany 銷售框架</a>
+          </div>
+          <div class="ch-arrow" id="ch5-arrow">▶</div>
+        </div>
+        <div class="chapter-body" id="ch5-body">
+          <div class="source-strip">
+            <span class="source-strip-label">來源：</span>
+            <a class="doc-chip" href="https://arthurwang-afk.github.io/tiffany_sales_framework/" target="_blank">🌐 Tiffany 框架 — 實戰清單章節</a>
+          </div>
+          <div class="checklist-section">
+
+            <div class="checklist-group">
+              <div class="checklist-group-title">📋 會議前 10 分鐘</div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">我知道今天會議分幾段、每段目標是什麼</div>
+              </div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">我準備好「為什麼選我們」的 3~5 個核心原因（非功能列表）</div>
+              </div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">我知道主要競品是誰，以及我要如何定位差異</div>
+              </div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">我確認技術同事知道今天哪些環節要他接手（Demo・技術問題）</div>
+              </div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">我回顧了上次與這個客戶的互動紀錄</div>
+              </div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">試用帳號、報價方案、比較表等輔助工具已準備好</div>
+              </div>
+            </div>
+
+            <div class="checklist-group">
+              <div class="checklist-group-title">🎙 開場前 5 分鐘</div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">開場說明今天的議程架構（分幾段、各做什麼、說清楚分鐘數）</div>
+              </div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">提及上次的互動，建立連續感（哪怕只是一封 email）</div>
+              </div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">說明今天聚焦的核心問題是什麼</div>
+              </div>
+            </div>
+
+            <div class="checklist-group">
+              <div class="checklist-group-title">💡 簡報說服過程</div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">每個功能都包裝在「原因」下，而非單純列功能</div>
+              </div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">主動提出競品比較，自己定義比較維度</div>
+              </div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">複雜技術問題傳球給技術同事，我掌控節奏</div>
+              </div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">有案例佐證（不只是功能說明）</div>
+              </div>
+            </div>
+
+            <div class="checklist-group">
+              <div class="checklist-group-title">❓ Q&A 階段</div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">先確認我理解了問題的方向，再回答（C.A.R.S.）</div>
+              </div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">「做不到」永遠不是第一句話，先給現有方案</div>
+              </div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">限制包裝成「可客製的機會」，給對方帶作業回去</div>
+              </div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">沒把握的問題，坦承「需確認」並給時限</div>
+              </div>
+            </div>
+
+            <div class="checklist-group">
+              <div class="checklist-group-title">🤝 收尾最後 5 分鐘</div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">口頭確認：今天分享了哪些重點</div>
+              </div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">確認「我方」的行動事項與時程（今天會後要做什麼）</div>
+              </div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">確認「客戶方」的行動事項（讓他們有作業帶回去）</div>
+              </div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">確認下一次接觸的觸發條件（什麼事發生後聯絡我）</div>
+              </div>
+            </div>
+
+            <div class="checklist-group">
+              <div class="checklist-group-title">📨 會後 24 小時內</div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">發送會議摘要，列出雙方的行動事項與時程</div>
+              </div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">附上承諾提供的資料（簡報、報價、比較表）</div>
+              </div>
+              <div class="check-item" onclick="toggleCheck(this)">
+                <div class="check-box"></div>
+                <div class="check-label">如有試用帳號，確認客戶收到並能正常使用</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM NOTE -->
+    <div class="bottom-bar">
+      <div class="bottom-note">
+        <div class="bottom-icon">+</div>
+        <span>第四章 FAQ 待補：提供會議紀錄後，將從真實對話中萃取常見問答補入。</span>
+      </div>
+      <a class="drive-btn" href="https://drive.google.com/drive/u/0/folders/12lx8W87J6aN8077rKUbbJFiOrCWeAUJm" target="_blank">
+        <span class="drive-icon">📁</span> 全部原始文件
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function toggleChapter(id) {
+  const body = document.getElementById(id + '-body');
+  const arrow = document.getElementById(id + '-arrow');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  arrow.classList.toggle('open', !isOpen);
+}
+
+function toggleCheck(el) {
+  const box = el.querySelector('.check-box');
+  const label = el.querySelector('.check-label');
+  box.classList.toggle('checked');
+  label.classList.toggle('checked');
+}
+
+document.querySelectorAll('.sidebar-item').forEach(item => {
+  item.addEventListener('click', function() {
+    document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
