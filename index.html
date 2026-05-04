@@ -453,6 +453,22 @@ body {
   border-radius: var(--radius-sm);
 }
 
+/* ── FAQ SOURCE BADGE ── */
+.faq-src {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 1px 7px;
+  border-radius: 10px;
+  margin-left: 6px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.faq-src.src-tiffany { background: var(--gray-100); color: var(--text-faint); border: 1px solid var(--border); }
+.faq-src.src-software { background: #E6F1FB; color: #0C447C; }
+.faq-src.src-kgi     { background: #E1F5EE; color: #085041; }
+.faq-src.src-elite   { background: #EEEDFE; color: #3C3489; }
+
 /* ── FAQ SECTION TITLE ── */
 .faq-section-title {
   padding: 8px 24px 6px;
@@ -1105,7 +1121,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">我們有日籍員工，系統支援日文嗎？</div>
+              <div class="faq-q-text">我們有日籍員工，系統支援日文嗎？ <span class="faq-src src-tiffany">Tiffany</span></div>
             </div>
             <div class="faq-a">
               <span class="step">① 確認需求：</span>「你的需求是介面日文化，還是合約內容需要翻譯，對嗎？」<br>
@@ -1117,7 +1133,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">可以自訂新的角色身份嗎？（如財務長）</div>
+              <div class="faq-q-text">可以自訂新的角色身份嗎？（如財務長） <span class="faq-src src-tiffany">Tiffany</span></div>
             </div>
             <div class="faq-a">
               <span class="step">① 確認需求：</span>「你希望財務長可以在哪個審核環節介入？」<br>
@@ -1129,7 +1145,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">資料閱覽可以限制到只有本人才看得到嗎？</div>
+              <div class="faq-q-text">資料閱覽可以限制到只有本人才看得到嗎？ <span class="faq-src src-tiffany">Tiffany</span></div>
             </div>
             <div class="faq-a">
               <span class="step">① 確認需求：</span>「是哪些欄位需要隱藏？是合約本文還是特定欄位？」<br>
@@ -1141,7 +1157,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">我們還在等高層的決策會議，不能現在決定…</div>
+              <div class="faq-q-text">我們還在等高層的決策會議，不能現在決定… <span class="faq-src src-tiffany">Tiffany</span></div>
             </div>
             <div class="faq-a">
               <span class="step">① 接受現狀：</span>「完全理解，這個決策規模確實需要高層確認。」<br>
@@ -1153,7 +1169,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">你們跟 DocuWare、其他競品有什麼不一樣？</div>
+              <div class="faq-q-text">你們跟 DocuWare、其他競品有什麼不一樣？ <span class="faq-src src-tiffany">Tiffany</span></div>
             </div>
             <div class="faq-a">
               <span class="step">① 主動定義戰場：</span>「市場上大概三種選擇：通用文件管理型、輕量表單型、合約專業深度型——我們是第三種。」<br>
@@ -1167,7 +1183,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">在審核流程中，每一關都可以把合約下載出來嗎？</div>
+              <div class="faq-q-text">在審核流程中，每一關都可以把合約下載出來嗎？ <span class="faq-src src-software">軟體公會</span></div>
             </div>
             <div class="faq-a">
               每一關都可以下載合約文件。如果是知式合約範本，下載的是 PDF（不能編輯）；如果是上傳的一般 Word 合約，可以下載 Word 讓廠商修改，修改後再上傳，系統自動新增版本號（0.1、0.2…），版本歷程都可在合約明細中查看。
@@ -1177,7 +1193,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">我要怎麼確定拿去蓋章的合約是最終版本？</div>
+              <div class="faq-q-text">我要怎麼確定拿去蓋章的合約是最終版本？ <span class="faq-src src-software">軟體公會</span><span class="faq-src src-kgi">凱基人壽</span></div>
             </div>
             <div class="faq-a">
               我們有「Final 版本下載」按鈕——這個按鈕只在審核流程到達特定關卡後才會出現（由你設定是哪一關）。下載的一定是 PDF，且壓上包含合約編號的浮水印。用印單位只要看到浮水印就知道是 Final 版，沒有浮水印就不是正確版本，不能用來蓋章。
@@ -1187,7 +1203,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">增補協議跟原合約怎麼關聯管理？多份互改的合約能串在一起嗎？</div>
+              <div class="faq-q-text">增補協議跟原合約怎麼關聯管理？多份互改的合約能串在一起嗎？ <span class="faq-src src-elite">精英人力</span><span class="faq-src src-software">軟體公會</span></div>
             </div>
             <div class="faq-a">
               增補協議是分開的申請件，但透過「關聯合約」功能可以互相串連。在起增補協議的申請單時，在「關聯合約」欄位設定原合約，兩份就會雙向連結，從任一份都可以直接點超連結跳到另一份查看。做了多次增補，每個申請單都可以設定多個關聯合約，把所有相關合約全部串在一起。
@@ -1197,7 +1213,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">合約審簽完了，之後對方說要改條款，要重新跑一次電子簽流程嗎？</div>
+              <div class="faq-q-text">合約審簽完了，之後對方說要改條款，要重新跑一次電子簽流程嗎？ <span class="faq-src src-elite">精英人力</span></div>
             </div>
             <div class="faq-a">
               「歸檔更正」功能主要用於資料資訊的更正，不是重新簽署。如果是條款變更，建議另起一份增補協議（算是另一份合約），用「關聯合約」功能把兩份串起來。若需要電子簽署增補協議，就另外跑一次完整流程。
@@ -1207,7 +1223,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">對方回傳的是掃描檔，法務要怎麼做版本比對？</div>
+              <div class="faq-q-text">對方回傳的是掃描檔，法務要怎麼做版本比對？ <span class="faq-src src-elite">精英人力</span></div>
             </div>
             <div class="faq-a">
               系統有 OCR 功能，可以把掃描 PDF 轉成文字。上傳後系統跑 OCR（約幾分鐘），完成後發 Email 通知，點連結進來可看到轉出的文字並做人工校正，校正完就可以用比對工具做版本差異比對。
@@ -1217,7 +1233,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">你們的合約比對跟 Word 的比對差在哪裡？</div>
+              <div class="faq-q-text">你們的合約比對跟 Word 的比對差在哪裡？ <span class="faq-src src-elite">精英人力</span></div>
             </div>
             <div class="faq-a">
               Word 是文字層級的比對，沒有條文的概念。我們的比對是<strong>合約條文層級</strong>——把合約切成一條一條去比，可以知道哪一條不見了、哪一條新增了、哪一條有什麼文字改變，演算法做條文配對，一秒內出結果。
@@ -1227,7 +1243,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">簽合約有本文加五個附件，用印時可以合成一個檔案嗎？</div>
+              <div class="faq-q-text">簽合約有本文加五個附件，用印時可以合成一個檔案嗎？ <span class="faq-src src-software">軟體公會</span></div>
             </div>
             <div class="faq-a">
               <span class="step">現有規格：</span>預設是把所有檔案打包成 ZIP 下載。<br>
@@ -1239,7 +1255,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">有四種合約類型，可以各自有不同的編號前綴嗎？</div>
+              <div class="faq-q-text">有四種合約類型，可以各自有不同的編號前綴嗎？ <span class="faq-src src-software">軟體公會</span></div>
             </div>
             <div class="faq-a">
               合約編號設定可以自訂前綴文字、年份、月份、流水號的組合，原則上可以做到按不同合約類型給不同前綴。細節我們確認標準規格是否已支援或需要小幅客製後回覆你。
@@ -1252,7 +1268,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">合約簽完後，財務從採購 / ERP 系統核帳時，要怎麼看到這份合約？</div>
+              <div class="faq-q-text">合約簽完後，財務從採購 / ERP 系統核帳時，要怎麼看到這份合約？ <span class="faq-src src-software">軟體公會</span></div>
             </div>
             <div class="faq-a">
               iLegL 中每份合約都可以生成一個連結。把這個連結複製到採購系統對應欄位，之後財務從採購系統點連結，就會直接開啟 iLegL 中這份合約的詳情頁，可以看到版本歷程、審核意見、下載合約文件。<strong>不需要 API 整合，只需複製連結。</strong>
@@ -1262,7 +1278,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">我們有很多舊的紙本合約，想要納入系統管理，怎麼做？</div>
+              <div class="faq-q-text">我們有很多舊的紙本合約，想要納入系統管理，怎麼做？ <span class="faq-src src-software">軟體公會</span></div>
             </div>
             <div class="faq-a">
               我們提供舊合約批次匯入服務。按照我們提供的 Excel 格式填好合約資訊，再提供電子檔或掃描檔，我們幫你成批匯入。費用按數量計算，方案文件中有這個項目的費用說明。
@@ -1272,7 +1288,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">你們跟點點簽的整合做好了嗎？</div>
+              <div class="faq-q-text">你們跟點點簽的整合做好了嗎？ <span class="faq-src src-kgi">凱基人壽</span></div>
             </div>
             <div class="faq-a">
               點點簽整合已完成。另外也正在整合 DocuSign（全球市佔率最高的電子簽章廠商），因為很多大企業指定要用。已整合點點簽的客戶，可以直接在 iLegL 流程中觸發點點簽，無需切換系統。
@@ -1285,7 +1301,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">我放上去的合約資料安全嗎？會不會被別人看到？</div>
+              <div class="faq-q-text">我放上去的合約資料安全嗎？會不會被別人看到？ <span class="faq-src src-elite">精英人力</span></div>
             </div>
             <div class="faq-a">
               所有上傳到系統的合約都有加密，直接到資料夾找檔案看起來都是亂碼。就算駭客進來，除非能破解帳號密碼，不然直接看那些檔案什麼都看不到。另外系統有嚴格的權限控管，你只能看你有權限的合約。
@@ -1295,7 +1311,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">如果之後不用這套系統了，之前的合約還看得到嗎？</div>
+              <div class="faq-q-text">如果之後不用這套系統了，之前的合約還看得到嗎？ <span class="faq-src src-elite">精英人力</span></div>
             </div>
             <div class="faq-a">
               因為是地端買斷制，資料都在你們自己的伺服器。透過系統介面，最高權限的人可以看到全公司合約並匯出。<strong>資料是你們的，不用擔心。</strong>
@@ -1305,7 +1321,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">資安檢測是怎麼做的？多久做一次？</div>
+              <div class="faq-q-text">資安檢測是怎麼做的？多久做一次？ <span class="faq-src src-software">軟體公會</span></div>
             </div>
             <div class="faq-a">
               上線之前我們幫你們做一次資安掃描。之後如果你們公司有自己的資安工具，可以自己掃；發現問題把報告給我們，告訴我們要解決到哪些等級，我們給費用評估。我們自己每次發版也都會用內部工具做掃描。
@@ -1318,7 +1334,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">AI 審閱會不會把我們的合約資料傳到外部？機密資料安全嗎？</div>
+              <div class="faq-q-text">AI 審閱會不會把我們的合約資料傳到外部？機密資料安全嗎？ <span class="faq-src src-kgi">凱基人壽</span></div>
             </div>
             <div class="faq-a">
               我們主推<strong>地端解決方案</strong>。AI 模型建置在客戶自己的機房或 private cloud，完全封閉在公司內部，不會傳出去。金融業客戶（如玉山銀行）全部採用地端，沒有一個用雲端。
@@ -1328,7 +1344,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">地端的 AI 正確率大概多少？跟雲端差多少？</div>
+              <div class="faq-q-text">地端的 AI 正確率大概多少？跟雲端差多少？ <span class="faq-src src-kgi">凱基人壽</span></div>
             </div>
             <div class="faq-a">
               地端 Open Source AI 正確率約 <strong>90%</strong>；雲端 LLM API（如 OpenAI）可以到 95%，但費用更高且有資料安全顧慮，所以我們目前都推地端。
@@ -1338,7 +1354,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">我們所有合約都適合用 AI 審閱嗎？</div>
+              <div class="faq-q-text">我們所有合約都適合用 AI 審閱嗎？ <span class="faq-src src-kgi">凱基人壽</span></div>
             </div>
             <div class="faq-a">
               AI 審閱最適合<strong>模板化合約</strong>——基本條文固定、只有少量商業條件不同的合約，例如 NDA、採購合約、例行活動合約。越是從範本改來的合約，AI 審閱效益越高。完全特殊化的合約，AI 的幫助比較有限。
@@ -1351,7 +1367,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">費用到底怎麼算？有什麼是額外的？</div>
+              <div class="faq-q-text">費用到底怎麼算？有什麼是額外的？ <span class="faq-src src-software">軟體公會</span></div>
             </div>
             <div class="faq-a">
               <span class="step">一次性費用：</span>基本版 80萬 + 標準導入 25萬 = 105萬（買斷）<br>
@@ -1364,7 +1380,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">這個系統是按人數收費嗎？人多要多付錢？</div>
+              <div class="faq-q-text">這個系統是按人數收費嗎？人多要多付錢？ <span class="faq-src src-software">軟體公會</span></div>
             </div>
             <div class="faq-a">
               完全沒有人數限制。我們賣的是使用權買斷，不是按人頭收費或訂閱制。整個公司所有人都可以用，不需要額外付人頭費。<strong>買一次，永久使用，只有年度維護費。</strong>
@@ -1374,7 +1390,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">維護費涵蓋哪些服務？哪些不包含？</div>
+              <div class="faq-q-text">維護費涵蓋哪些服務？哪些不包含？ <span class="faq-src src-kgi">凱基人壽</span></div>
             </div>
             <div class="faq-a">
               <span class="step">包含：</span>系統 bug 修復、使用問題諮詢；如果在其他客戶發現系統漏洞，也會主動幫所有客戶修復。<br>
@@ -1385,7 +1401,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">基本版和旗艦版的差別是什麼？</div>
+              <div class="faq-q-text">基本版和旗艦版的差別是什麼？ <span class="faq-src src-kgi">凱基人壽</span></div>
             </div>
             <div class="faq-a">
               <span class="step">基本版（80萬）：</span>合約申請、審核、查詢、比對、行動裝置審核，對大多數客戶已足夠。<br>
@@ -1397,7 +1413,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">試用要付費嗎？怎麼試用？</div>
+              <div class="faq-q-text">試用要付費嗎？怎麼試用？ <span class="faq-src src-kgi">凱基人壽</span></div>
             </div>
             <div class="faq-a">
               <strong>不需要付費。</strong>我們可以開放一個月試用環境，預設好情境和角色權限，讓你們輪流試用。一個月試不夠也可以延長。我們會提供試用手冊供參考。
@@ -1407,7 +1423,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">從決定購買到上線，大概需要多久時間？</div>
+              <div class="faq-q-text">從決定購買到上線，大概需要多久時間？ <span class="faq-src src-software">軟體公會</span></div>
             </div>
             <div class="faq-a">
               完全不客製化的情況下，標準導入約 <strong>3 個月</strong>。包含：SSO 整合（AD / LDAP 對接）、HR 資料每天定期同步、系統基本設定（合約類型、審核流程）、測試環境建置、教育訓練。有客製需求則時程另計。
@@ -1417,7 +1433,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">25 萬的標準導入包含哪些服務？</div>
+              <div class="faq-q-text">25 萬的標準導入包含哪些服務？ <span class="faq-src src-software">軟體公會</span></div>
             </div>
             <div class="faq-a">
               <span class="step">包含：</span>SSO 整合（微軟 AD 或 LDAP）、HR 資料每天定期同步（讓流程根據組織架構跑）、系統基本設定（合約類型、審核流程）、一次性資安掃描、測試環境建置、教育訓練。<br>
@@ -1431,7 +1447,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">iLegL 跟勤業眾信是什麼關係？</div>
+              <div class="faq-q-text">iLegL 跟勤業眾信是什麼關係？ <span class="faq-src src-elite">精英人力</span></div>
             </div>
             <div class="faq-a">
               我們是合作夥伴。iLegL 放在勤業眾信官網上推廣，他們推薦九個數位轉型工具，我們是唯一一個外部合作夥伴。玉山銀行就是透過勤業眾信介紹過來的。這個合作代表我們的產品通過了他們嚴謹的審核。
@@ -1441,7 +1457,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">你們的系統可以處理 B2C 合約嗎？不只是公司對公司？</div>
+              <div class="faq-q-text">你們的系統可以處理 B2C 合約嗎？不只是公司對公司？ <span class="faq-src src-elite">精英人力</span></div>
             </div>
             <div class="faq-a">
               完全可以。系統在合約類型上沒有限制，不管是 B2B 還是 B2C 都可以。簽約對象可以是公司也可以是個人，資料都可以維護上去（適用於派遣人力、零售等需要大量個人合約的場景）。
@@ -1451,7 +1467,7 @@ body {
           <div class="faq-item">
             <div class="faq-q">
               <div class="faq-q-icon">Q</div>
-              <div class="faq-q-text">我們法務通常是最後審核的，這樣在系統裡可以設定嗎？</div>
+              <div class="faq-q-text">我們法務通常是最後審核的，這樣在系統裡可以設定嗎？ <span class="faq-src src-kgi">凱基人壽</span></div>
             </div>
             <div class="faq-a">
               可以，流程完全可以自訂。建議參考：法務通常設在合約審核的中間關卡比較合適，不是最後一關——因為法務看完沒問題後，承辦人還要把合約給交易對手確認，最後才是用印。最終流程設計根據你們的實際狀況調整。
@@ -1638,9 +1654,34 @@ function toggleCheck(el) {
 }
 
 document.querySelectorAll('.sidebar-item').forEach(item => {
-  item.addEventListener('click', function() {
+  item.addEventListener('click', function(e) {
+    // Skip external links
+    if (this.target === '_blank') return;
+
     document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
     this.classList.add('active');
+
+    const href = this.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+
+      if (targetId.startsWith('ch')) {
+        const body = document.getElementById(targetId + '-body');
+        const arrow = document.getElementById(targetId + '-arrow');
+        if (body && !body.classList.contains('open')) {
+          body.classList.add('open');
+          arrow.classList.add('open');
+        }
+        setTimeout(() => {
+          const section = document.getElementById(targetId);
+          if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      } else {
+        const target = document.getElementById(targetId);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
   });
 });
 
