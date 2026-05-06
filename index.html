@@ -468,6 +468,7 @@ body {
 .faq-src.src-software { background: #E6F1FB; color: #0C447C; }
 .faq-src.src-kgi     { background: #E1F5EE; color: #085041; }
 .faq-src.src-elite   { background: #EEEDFE; color: #3C3489; }
+.faq-src.src-dongsheng { background: #FAEEDA; color: #633806; }
 
 /* ── FAQ SECTION TITLE ── */
 .faq-section-title {
@@ -749,8 +750,8 @@ body {
           <div class="hero-stat-label">可用話術模板</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-num">FAQ</div>
-          <div class="hero-stat-label">待補（會議紀錄）</div>
+          <div class="hero-stat-num">46</div>
+          <div class="hero-stat-label">客戶 FAQ 情境</div>
         </div>
       </div>
     </div>
@@ -830,6 +831,7 @@ body {
           </div>
           <div class="ch-sources">
             <a class="src-badge" href="https://arthurwang-afk.github.io/tiffany_sales_framework/" target="_blank" onclick="event.stopPropagation()">🌐 Tiffany 銷售框架</a>
+            <span class="src-badge">📋 東生華 2026-05-05</span>
           </div>
           <div class="ch-arrow" id="ch2-arrow">▶</div>
         </div>
@@ -837,6 +839,7 @@ body {
           <div class="source-strip">
             <span class="source-strip-label">來源：</span>
             <a class="doc-chip" href="https://arthurwang-afk.github.io/tiffany_sales_framework/" target="_blank">🌐 Tiffany 業務公式 — 可複製的銷售框架</a>
+            <span class="doc-chip">📋 東生華客戶拜訪 2026-05-05</span>
           </div>
 
           <!-- T.A.R.E. -->
@@ -949,6 +952,112 @@ body {
           <div style="padding:4px 24px 16px;">
             <div style="font-size:12px;color:var(--text-muted);background:var(--gray-50);padding:10px;border-radius:6px;">⚠️ <strong>「做不到」永遠不是第一句話。</strong>先確認需求 → 給現有方案 → 再說擴充路徑。把限制包裝成「可評估的機會」，讓對方帶作業回去。</div>
           </div>
+
+          <!-- 開場三問確認客戶環境 -->
+          <div style="padding:12px 24px 4px;border-top:1px solid var(--border);">
+            <div style="font-size:12px;font-weight:500;color:var(--text-faint);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">開場前三問：先確認客戶環境再介紹 <span class="faq-src src-dongsheng" style="vertical-align:middle;">東生華</span></div>
+            <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px;">問完後，每介紹一個功能都帶一句「以你們的狀況來說，這個功能可以這樣用」，讓客戶覺得系統是為他設計的，不是通用產品。</div>
+          </div>
+          <div class="why-steps">
+            <div class="why-step">
+              <div class="why-num">1</div>
+              <div class="why-content">
+                <div class="why-title">幾家公司？IT / 法務是否共用？</div>
+                <div class="why-desc">確認後，介紹多公司架構時直接說：「以你們三家公司的情況，高階主管可以跨公司切換，法務因為共用所以可以看全部公司的合約。」</div>
+              </div>
+            </div>
+            <div class="why-step">
+              <div class="why-num">2</div>
+              <div class="why-content">
+                <div class="why-title">現在用什麼系統？HR 是否同一套？</div>
+                <div class="why-desc">確認 HR 系統家數，影響 SSO 整合複雜度的說明；確認是否 M365 用戶，影響 AAD MFA 整合方式的說明。</div>
+              </div>
+            </div>
+            <div class="why-step">
+              <div class="why-num">3</div>
+              <div class="why-content">
+                <div class="why-title">部署偏好？雲端 / 地端 / AWS？</div>
+                <div class="why-desc">確認後，AI 審閱與資安討論可以直接對應：「以你們走地端的情況，AI 模型建在你們自己機房，資料完全封閉。」</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 合約生命週期介紹法 -->
+          <div style="padding:12px 24px 4px;border-top:1px solid var(--border);">
+            <div style="font-size:12px;font-weight:500;color:var(--text-faint);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">合約生命週期貫穿介紹法 <span class="faq-src src-dongsheng" style="vertical-align:middle;">東生華</span></div>
+            <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px;">不要用功能清單，用客戶每天跑的流程當骨架，把功能掛上去。連接句固定說：「你們現在這個流程，在我們系統裡是這樣跑的。」</div>
+          </div>
+          <div style="padding:4px 24px 16px;">
+            <div style="display:flex;gap:0;align-items:center;flex-wrap:wrap;row-gap:6px;">
+              <span style="background:var(--purple-light);color:var(--purple-dark);padding:5px 12px;border-radius:20px;font-size:12px;font-weight:500;">起草</span>
+              <span style="color:var(--text-faint);padding:0 4px;font-size:12px;">→</span>
+              <span style="background:var(--teal-light);color:var(--teal-dark);padding:5px 12px;border-radius:20px;font-size:12px;font-weight:500;">送審</span>
+              <span style="color:var(--text-faint);padding:0 4px;font-size:12px;">→</span>
+              <span style="background:var(--blue-light);color:var(--blue-dark);padding:5px 12px;border-radius:20px;font-size:12px;font-weight:500;">審閱來回</span>
+              <span style="color:var(--text-faint);padding:0 4px;font-size:12px;">→</span>
+              <span style="background:var(--amber-light);color:var(--amber-dark);padding:5px 12px;border-radius:20px;font-size:12px;font-weight:500;">用印/電簽</span>
+              <span style="color:var(--text-faint);padding:0 4px;font-size:12px;">→</span>
+              <span style="background:var(--gray-100);color:var(--gray-600);padding:5px 12px;border-radius:20px;font-size:12px;font-weight:500;">歸檔</span>
+              <span style="color:var(--text-faint);padding:0 4px;font-size:12px;">→</span>
+              <span style="background:var(--pink-light);color:var(--pink-dark);padding:5px 12px;border-radius:20px;font-size:12px;font-weight:500;">履約追蹤</span>
+              <span style="color:var(--text-faint);padding:0 4px;font-size:12px;">→</span>
+              <span style="background:var(--red-light);color:var(--red);padding:5px 12px;border-radius:20px;font-size:12px;font-weight:500;">續約/到期</span>
+            </div>
+          </div>
+
+          <!-- 功能三段式示範 -->
+          <div style="padding:12px 24px 4px;border-top:1px solid var(--border);">
+            <div style="font-size:12px;font-weight:500;color:var(--text-faint);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;">功能三段式：痛點 → 功能 → 好處 <span class="faq-src src-dongsheng" style="vertical-align:middle;">東生華</span></div>
+            <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px;">原則：先說「為什麼不用既有工具就好？」這個客戶心裡的抗拒，再說差異，帶使用情境，最後說好處。不等客戶問，自己先說，顯得專業有說服力。</div>
+          </div>
+          <div class="items-list">
+            <div class="item-row">
+              <div class="item-dot" style="background:var(--amber)"></div>
+              <div class="item-content">
+                <div class="item-title">差異比對 vs Word <span class="tag tag-t">話術範本</span></div>
+                <div class="item-note" style="background:var(--gray-50);padding:10px;border-radius:6px;margin-top:6px;border-left:3px solid var(--amber);">「很多客戶問為什麼不用 Word 的差異就好？Word 是<strong>文字比對</strong>，我們是<strong>條文比對</strong>——你可以知道哪一條被刪掉、哪一條被新增。金額高的合約來回幾個版本其實很亂，用我們的工具可以很快看出兩份的差異。」</div>
+              </div>
+            </div>
+            <div class="item-row">
+              <div class="item-dot" style="background:var(--amber)"></div>
+              <div class="item-content">
+                <div class="item-title">AI 智能審閱破冰 <span class="tag tag-t">話術範本</span></div>
+                <div class="item-note" style="background:var(--gray-50);padding:10px;border-radius:6px;margin-top:6px;border-left:3px solid var(--amber);">「AI <strong>不是取代法務</strong>，它只是幫你做初步審閱，速度可以到七八十分，剩下還是要人來做 Final Review。適合合約量大、法務人力不多的公司。」<br><br>⚠️ 法務聽到 AI 審合約第一個反應是「那我的工作呢？」先把這個擔憂消除，防衛心才會降低。主動說出限制也讓客戶覺得你誠實、不誇大。</div>
+              </div>
+            </div>
+            <div class="item-row">
+              <div class="item-dot" style="background:var(--amber)"></div>
+              <div class="item-content">
+                <div class="item-title">Final 版本下載＋浮水印 <span class="tag tag-t">話術範本</span></div>
+                <div class="item-note" style="background:var(--gray-50);padding:10px;border-radius:6px;margin-top:6px;border-left:3px solid var(--amber);">「用印的人很怕拿錯版本，我們有一個按鈕，按下去就把 Final 版本轉成 PDF 並壓上浮水印——用印的人只要看到浮水印就知道是 Final，沒有浮水印就不能用來蓋章。」</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 資安分四層主動說 -->
+          <div style="padding:12px 24px 16px;border-top:1px solid var(--border);">
+            <div style="font-size:12px;font-weight:500;color:var(--text-faint);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;">有 IT 出席時：資安分四層主動說 <span class="faq-src src-dongsheng" style="vertical-align:middle;">東生華</span></div>
+            <div style="font-size:12px;color:var(--text-muted);background:var(--gray-50);padding:10px;border-radius:6px;margin-bottom:8px;">⚠️ <strong>不要等 IT 問，主動說。</strong>說的時候要分四層，每層都提到，讓 IT 感覺「這家廠商有認真考慮資安」。</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;">
+              <div style="border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;">
+                <div style="font-weight:500;color:var(--text);margin-bottom:3px;">① 檔案加密層</div>
+                <div style="color:var(--text-muted);">所有上傳合約都加密，從檔案總管直接開看到的是亂碼</div>
+              </div>
+              <div style="border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;">
+                <div style="font-weight:500;color:var(--text);margin-bottom:3px;">② 傳輸層</div>
+                <div style="color:var(--text-muted);">走 HTTPS，傳輸過程全程加密</div>
+              </div>
+              <div style="border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;">
+                <div style="font-weight:500;color:var(--text);margin-bottom:3px;">③ 帳號／權限層</div>
+                <div style="color:var(--text-muted);">SSO 整合、嚴格角色權限，你只能看你有權限的合約</div>
+              </div>
+              <div style="border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;">
+                <div style="font-weight:500;color:var(--text);margin-bottom:3px;">④ 程式碼層</div>
+                <div style="color:var(--text-muted);">原始碼檢測＋弱點掃描（OWASP ZAP），每次發版都掃</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -1112,6 +1221,7 @@ body {
           </div>
           <div class="ch-sources">
             <a class="src-badge" href="https://arthurwang-afk.github.io/tiffany_sales_framework/" target="_blank" onclick="event.stopPropagation()">🌐 Tiffany 框架</a>
+            <span class="src-badge">📋 東生華 2026-05-05</span>
           </div>
           <div class="ch-arrow" id="ch4-arrow">▶</div>
         </div>
@@ -1122,10 +1232,11 @@ body {
             <a class="doc-chip" href="https://drive.google.com/file/d/1m9PdwtoxprCy7DMFQmouYXe5UOBwvPjM/view?usp=drivesdk" target="_blank">📋 軟體公會展示會議 FAQ</a>
             <a class="doc-chip" href="https://drive.google.com/file/d/1QCCmabptY_30guDa7QcE56v6OR_-D7k-/view?usp=drivesdk" target="_blank">📋 凱基人壽展示會議 FAQ</a>
             <a class="doc-chip" href="https://drive.google.com/file/d/1Z8Im3yH88ccFX6R-FSH9HK7OehAl1KEl/view?usp=drivesdk" target="_blank">📋 精英人力展示會議 FAQ</a>
+            <span class="doc-chip">📋 東生華客戶拜訪 2026-05-05</span>
           </div>
           <div class="pending-notice">
             <div class="pending-icon">⏳</div>
-            <div class="pending-text"><strong>FAQ 已更新：</strong>以下整合 Tiffany 框架整理情境（5 題），以及精英人力・凱基人壽・軟體公會三場真實展示會議問答（27 題），共 32 個情境。</div>
+            <div class="pending-text"><strong>FAQ 已更新：</strong>以下整合 Tiffany 框架整理情境（5 題）、精英人力・凱基人壽・軟體公會三場展示會議問答（27 題），以及東生華客戶拜訪問答（14 題），共 46 個情境。</div>
           </div>
           <div class="faq-item">
             <div class="faq-q">
@@ -1186,6 +1297,60 @@ body {
               <span class="step">③ 引導決策：</span>「如果你的核心需求是合約審閱流程、履約管理、法務協作，我們是最合適的。」
             </div>
           </div>
+          <!-- ─── 審核流程操作類 ─── -->
+          <div class="faq-section-title">審核流程操作類</div>
+
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">退回時一定要填退回意見嗎？能否不強制填寫？ <span class="faq-src src-dongsheng">東生華</span></div>
+            </div>
+            <div class="faq-a">
+              不用每次手動輸入。系統可讓管理者預設「退回原因」選項，使用者退回時直接從選單選，不需要手動打字。這是系統原本就有的設計，不算客製，管理者自行設定即可。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">審核流程中，能否讓法務審完後再給法務主管做 Second Review，再送出去？ <span class="faq-src src-dongsheng">東生華</span></div>
+            </div>
+            <div class="faq-a">
+              直接在 Workflow 裡加一個「法務主管審核」關卡即可，不需要用「退回」或「加簽」的方式繞路。讓流程設計本身就包含這個關卡，比用退回來繞更乾淨，也不會造成重複通知問題。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">合約金額填錯導致簽核層級不足，能否動態調整流程關卡？ <span class="faq-src src-dongsheng">東生華</span></div>
+            </div>
+            <div class="faq-a">
+              流程在起案時就已決定，無法動態變更。遇到這種情況，正確做法是由法務發動「加簽」，把需要的關卡補加進去，不能直接修改已在跑的流程。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">主管審核時能否只看重點欄位、隱藏不必要的欄位？ <span class="faq-src src-dongsheng">東生華</span></div>
+            </div>
+            <div class="faq-a">
+              <span class="step">固定欄位：</span>可以按關卡設定每個欄位的顯示／隱藏／是否可編輯，粒度很細。<br>
+              <span class="step">自定欄位：</span>目前是整組開關，無法細拆到單一欄位——若有需求，建議先整理出具體情境讓我們評估。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">主管一直收到重複的退回通知，能否 Skip 中間主管？ <span class="faq-src src-dongsheng">東生華</span></div>
+            </div>
+            <div class="faq-a">
+              這通常是操作方式的問題，不是系統限制。正確流程設計應該是：<strong>法務審完 → 下一關給承辦人 → 承辦人代交易對手確認 → 對方不同意才退回法務</strong>，不會重複經過主管。若使用「退回給承辦」再重送，才會造成流程重跑的問題，調整操作方式即可解決。
+            </div>
+          </div>
+
           <!-- ─── 合約版本與文件管理類 ─── -->
           <div class="faq-section-title">合約版本與文件管理類</div>
 
@@ -1291,6 +1456,16 @@ body {
             </div>
           </div>
 
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">差異比對範圍太廣，能否只針對當前這份合約比對？ <span class="faq-src src-dongsheng">東生華</span></div>
+            </div>
+            <div class="faq-a">
+              系統有兩種比對情境：<strong>① 流程中各版本互比</strong>——當前申請件的版本歷程，選項較少，操作直覺；<strong>② 與已歸檔合約比對</strong>——跨合約比較，需選公司和合約，選項較多。若覺得選項太廣，通常是進入了第二種情境，確認操作路徑後即可解決。
+            </div>
+          </div>
+
           <!-- ─── 系統整合類 ─── -->
           <div class="faq-section-title">系統整合類</div>
 
@@ -1344,6 +1519,49 @@ body {
             </div>
           </div>
 
+          <!-- ─── IT 技術架構類 ─── -->
+          <div class="faq-section-title">IT 技術架構類</div>
+
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">系統是走 Intranet 還是 Internet？VPN 怎麼處理？ <span class="faq-src src-dongsheng">東生華</span></div>
+            </div>
+            <div class="faq-a">
+              目前所有客戶都走 <strong>Intranet</strong>。若要走 Internet，資安防護等級要提高，需加 WAF、MFA 等機制，成本與複雜度大幅增加。建議仍走 Intranet——主管在外用手機時，需透過公司 VPN 才能連線。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">手機是用 App 還是網頁？走 Intranet 手機要開 VPN 嗎？ <span class="faq-src src-dongsheng">東生華</span></div>
+            </div>
+            <div class="faq-a">
+              目前全部是 <strong>Web（響應式網頁）</strong>，沒有獨立 App。走 Intranet 的話，手機連線確實需要 VPN。由於主管通常不願意開 VPN，<strong>建議不要主動對主管宣傳手機審核功能</strong>，以電腦使用為主。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">三家公司的 AD 各自獨立，能否整合做跨 Domain 的 Single Sign-On？ <span class="faq-src src-dongsheng">東生華</span></div>
+            </div>
+            <div class="faq-a">
+              技術上可行，曾有服務過跨 Domain 的客戶案例，但實際做法較複雜。建議進入 POC 階段時，由 IT 提供具體的 AD 架構，讓技術同事評估整合方式與工作量後再確認細節。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">系統是否支援 Azure AD（AAD）的 MFA 二次驗證？ <span class="faq-src src-dongsheng">東生華</span></div>
+            </div>
+            <div class="faq-a">
+              系統本身目前<strong>沒有內建 MFA</strong>，但若公司走 M365 / AAD，可在 AAD 層級啟用 MFA——使用者登入 SSO 時 AAD 會自動觸發二次驗證，不需要系統額外開發。全公司已是 M365 用戶的情境下，這是最省成本的做法。
+            </div>
+          </div>
+
           <!-- ─── 安全與資料類 ─── -->
           <div class="faq-section-title">安全與資料類</div>
 
@@ -1377,8 +1595,49 @@ body {
             </div>
           </div>
 
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">弱點掃描若掃出中高風險漏洞，宏思是否免費修復？ <span class="faq-src src-dongsheng">東生華</span></div>
+            </div>
+            <div class="faq-a">
+              <span class="step">免費：</span>一般性小問題、常見已知漏洞，免費協助修正；在其他客戶發現的系統漏洞也會主動幫所有客戶修復。<br>
+              <span class="step">另計：</span>若需要大幅改寫架構的防禦措施（如 CSP 全面大改），屬於較大工程，會與客戶協商是否另外收費。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">系統有支援 DR（災難復原）/ BCP？RTO / RPO 要求怎麼談？ <span class="faq-src src-dongsheng">東生華</span></div>
+            </div>
+            <div class="faq-a">
+              DR/BCP 目前不是常態服務項目（尚無客戶要求過）。有需求時建議以<strong>一次性服務報價</strong>方式處理，不納入年費，避免讓其他客戶都多付這筆費用。若合約中有 RTO/RPO 條款需求，可在簽約時另開條款討論。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">系統的模擬帳號（特權帳號）IT 是否能有管理權限？ <span class="faq-src src-dongsheng">東生華</span></div>
+            </div>
+            <div class="faq-a">
+              系統有「模擬帳號」機制，可切換成任意使用者身份排查問題，但<strong>預設不開放</strong>，需要特別設定才能啟用，且通常不建議對一般管理員開放。系統管理者通常設定為法務；IT 若無此權限，問題回報透過宏思的問題追蹤系統處理。
+            </div>
+          </div>
+
           <!-- ─── AI 智能審閱類 ─── -->
           <div class="faq-section-title">AI 智能審閱類</div>
+
+          <div class="faq-item">
+            <div class="faq-q">
+              <div class="faq-q-icon">Q</div>
+              <div class="faq-q-text">AI 智能審閱的「有限範圍」是什麼意思？它能審什麼？ <span class="faq-src src-dongsheng">東生華</span></div>
+            </div>
+            <div class="faq-a">
+              需要先完成兩個前置設定：<strong>① 上傳合約範本</strong>，<strong>② 設定審約要點</strong>（合理性、合規性、完整性等）。AI 依此對送審的合約做初步審閱，並非像 ChatGPT 那種通用型 AI，而是針對你們自己設定的規則來跑。沒有上傳範本和設定要點，AI 無法啟動審閱。
+            </div>
+          </div>
 
           <div class="faq-item">
             <div class="faq-q">
@@ -1676,7 +1935,7 @@ body {
     <div class="bottom-bar">
       <div class="bottom-note">
         <div class="bottom-icon">+</div>
-        <span>第四章 FAQ 已完成第一版更新（精英人力・凱基人壽・軟體公會），共 32 個情境。如有新場景請持續補充。</span>
+        <span>第四章 FAQ 已完成第二版更新（精英人力・凱基人壽・軟體公會・東生華），共 46 個情境。如有新場景請持續補充。</span>
       </div>
       <a class="drive-btn" href="https://drive.google.com/drive/u/0/folders/12lx8W87J6aN8077rKUbbJFiOrCWeAUJm" target="_blank">
         <span class="drive-icon">📁</span> 全部原始文件
