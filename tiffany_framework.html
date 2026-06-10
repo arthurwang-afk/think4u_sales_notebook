@@ -105,6 +105,19 @@
     border-bottom-color: var(--gold);
   }
 
+  /* MOBILE BAR + DRAWER (hidden on desktop) */
+  .mobile-bar { display: none; }
+  .menu-toggle {
+    display: none;
+    align-items: center; justify-content: center;
+    width: 38px; height: 38px; margin-left: -6px;
+    border: none; border-radius: 8px; background: transparent;
+    color: var(--cream); font-size: 20px; line-height: 1; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .menu-toggle:hover { background: rgba(255,255,255,0.12); }
+  .nav-overlay { display: none; }
+
   /* MAIN */
   main {
     max-width: 900px;
@@ -409,9 +422,54 @@
     .card { padding: 22px 18px; }
     .flow-step { min-width: 100px; }
   }
+
+  @media (max-width: 768px) {
+    .menu-toggle { display: flex; }
+    .mobile-bar {
+      display: flex; align-items: center; gap: 12px;
+      position: sticky; top: 0; z-index: 60;
+      height: 52px; padding: 0 16px;
+      background: var(--ink); color: var(--cream);
+      border-bottom: 2px solid var(--gold);
+    }
+    .mobile-bar-title { font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 17px; letter-spacing: 0.5px; }
+    .nav-wrap {
+      position: fixed; top: 52px; left: 0;
+      width: 264px; max-width: 80vw; height: calc(100vh - 52px);
+      flex-direction: column; flex-wrap: nowrap;
+      overflow-x: hidden; overflow-y: auto;
+      padding: 8px 0; border-top: none;
+      transform: translateX(-100%); transition: transform 0.25s ease;
+      z-index: 70; box-shadow: 6px 0 24px rgba(0,0,0,0.4);
+    }
+    .nav-wrap.open { transform: translateX(0); }
+    .nav-tab {
+      width: 100%; padding: 14px 22px;
+      border-bottom: none; border-left: 3px solid transparent;
+      white-space: normal;
+    }
+    .nav-tab.active {
+      border-bottom-color: transparent;
+      border-left-color: var(--gold);
+      background: rgba(201,168,76,0.12);
+    }
+    .nav-overlay {
+      display: block; position: fixed; top: 52px; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+      z-index: 65;
+    }
+    .nav-overlay.open { opacity: 1; visibility: visible; }
+  }
 </style>
 </head>
 <body>
+
+<div class="mobile-bar">
+  <button class="menu-toggle" id="menuToggle" aria-label="開啟章節選單" aria-controls="navWrap" aria-expanded="false">☰</button>
+  <span class="mobile-bar-title">Tiffany 業務公式</span>
+</div>
 
 <header>
   <div class="label">業務技能萃取系統</div>
@@ -420,7 +478,7 @@
   <div class="source-badge">📄 來源：iLego 合約系統銷售會議逐字稿</div>
 </header>
 
-<div class="nav-wrap">
+<div class="nav-wrap" id="navWrap">
   <div class="nav-tab active" onclick="switchTab('overview')">📐 整體框架</div>
   <div class="nav-tab" onclick="switchTab('opening')">🎯 開場公式</div>
   <div class="nav-tab" onclick="switchTab('pitch')">💡 說服結構</div>
@@ -428,6 +486,7 @@
   <div class="nav-tab" onclick="switchTab('closing')">🤝 收尾推進</div>
   <div class="nav-tab" onclick="switchTab('checklist')">✅ 實戰清單</div>
 </div>
+<div class="nav-overlay" id="navOverlay"></div>
 
 <main>
 
@@ -790,6 +849,18 @@ function toggleCheck(li) {
   icon.classList.toggle('checked');
   li.classList.toggle('checked-item');
 }
+
+(function(){
+  var mt = document.getElementById('menuToggle');
+  var nav = document.getElementById('navWrap');
+  var ov = document.getElementById('navOverlay');
+  function openNav(){ nav.classList.add('open'); ov.classList.add('open'); if(mt) mt.setAttribute('aria-expanded','true'); }
+  function closeNav(){ nav.classList.remove('open'); ov.classList.remove('open'); if(mt) mt.setAttribute('aria-expanded','false'); }
+  if(mt) mt.addEventListener('click', function(e){ e.stopPropagation(); nav.classList.contains('open') ? closeNav() : openNav(); });
+  if(ov) ov.addEventListener('click', closeNav);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeNav(); });
+  if(nav) nav.addEventListener('click', function(e){ if(e.target.closest && e.target.closest('.nav-tab')) closeNav(); });
+})();
 </script>
 </body>
 </html>
