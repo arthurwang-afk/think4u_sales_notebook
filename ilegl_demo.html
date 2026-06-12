@@ -524,7 +524,7 @@ function renderPage(id){
         <h1>${esc(p.title)}</h1>
         <div class="crumb">${esc(p.breadcrumb)}</div>
         <div class="tags">${tags}<span class="typetag">${esc(p.typeLabel)}</span></div>
-        ${pageUrl?`<div style="margin-top:14px"><a class="blink" href="${pageUrl}" target="_blank" rel="noopener" title="在系統開啟此頁">🔗 在系統開啟此頁</a></div>`:''}
+        ${pageUrl?`<div style="margin-top:14px"><a class="rpt-btn" style="display:inline-flex" href="${pageUrl}" target="_blank" rel="noopener" title="在系統開啟此頁">🔗 在系統開啟此頁</a></div>`:''}
       </div>
       <div class="doc-body">
         <div class="shot" onclick="zoom('${p.img}')"><img src="${p.img}" alt="${esc(p.title)}"><span class="hint">🔍 點擊放大</span></div>
