@@ -97,7 +97,7 @@ body{font-family:var(--sans);color:var(--ink);background:var(--paper);
 .rcard .pill{background:var(--cream);color:var(--ink-soft);padding:3px 10px;border-radius:20px;font-weight:600}
 .home-links{display:flex;gap:14px;margin-top:26px}
 .blink{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:11px;cursor:pointer;
-  border:1px solid var(--line);background:var(--paper-2);font-size:14px;font-weight:600;color:var(--navy);transition:.18s}
+  border:1px solid var(--line);background:var(--paper-2);font-size:14px;font-weight:600;color:var(--navy);text-decoration:none;transition:.18s}
 .blink:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
 /* section heads */
 .shead{display:flex;align-items:center;gap:12px;margin:30px 0 16px}
@@ -524,7 +524,7 @@ function renderPage(id){
         <h1>${esc(p.title)}</h1>
         <div class="crumb">${esc(p.breadcrumb)}</div>
         <div class="tags">${tags}<span class="typetag">${esc(p.typeLabel)}</span></div>
-        ${pageUrl?`<div style="margin-top:14px"><a class="blink" href="${pageUrl}" target="_blank" rel="noopener" title="在系統開啟此頁">在系統開啟此頁 ↗</a></div>`:''}
+        ${pageUrl?`<div style="margin-top:14px"><a class="blink" href="${pageUrl}" target="_blank" rel="noopener" title="在系統開啟此頁">🔗 在系統開啟此頁</a></div>`:''}
       </div>
       <div class="doc-body">
         <div class="shot" onclick="zoom('${p.img}')"><img src="${p.img}" alt="${esc(p.title)}"><span class="hint">🔍 點擊放大</span></div>
