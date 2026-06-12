@@ -332,6 +332,7 @@ function renderSide(){
     <div class="lbl">瀏覽</div>
     <div class="nav-item ${state.view==='all'?'active':''}" onclick="go('all')"><span class="ic">▤</span>全部 18 頁總覽</div>
     <div class="nav-item ${state.view==='matrix'?'active':''}" onclick="go('matrix')"><span class="ic">▦</span>角色 × 頁面對照矩陣</div>
+    <div class="nav-item ${state.view==='reports'?'active':''}" onclick="go('reports')"><span class="ic">📊</span>報表快速入口</div>
     <div class="legend">圖例　<b>◎</b> 主要使用角色　<br><b>○</b> 次要 / 參考角色<br>
       <span style="color:#7E8DA0">點任一頁＝顯示完整說辭</span></div>`;
 }
@@ -407,26 +408,26 @@ function renderRole(key){
 }
 
 /* ---------- reports view ---------- */
-/* 要改網址只動 ctrl 欄；URL = DATA.site + ctrl + '/Index'。✓=已確認，其餘為依名稱推測 */
+/* controller 名稱均取自 dev 原始碼 feat/demo0527、已核對 view 標題。URL = DATA.site + ctrl + '/Index' */
 const REPORTS=[
-  {name:'紙本借閱申請統計表',ctrl:'RptPaperBorrowApply'},
-  {name:'履約管理報表',ctrl:'RptFulfillmentManage'},
-  {name:'履約績效報表',ctrl:'RptFulfillmentPerformance'},
-  {name:'法務收件與急件負荷報表',ctrl:'RptLegalWorkload'},
+  {name:'紙本借閱申請統計表',ctrl:'View'},
+  {name:'履約管理報表',ctrl:'RptRemind'},
+  {name:'履約績效報表',ctrl:'FulfillPerformance'},
+  {name:'法務收件與急件負荷報表',ctrl:'RptLegalIntake'},
   {name:'案件處理效率報表',ctrl:'RptCaseEfficiency'},
-  {name:'專案合約追蹤表',ctrl:'RptProjectContractTracking'},
-  {name:'退件分析報表',ctrl:'RptRejectionAnalysis'},   /* ✓ 已確認 */
-  {name:'申請單位統計表',ctrl:'RptApplyUnitStatistics'},
-  {name:'已停用使用者案件一覽表',ctrl:'RptDisabledUserCase'},
-  {name:'合約歸檔進度追蹤表',ctrl:'RptArchiveProgress'},   /* ✓ 已確認 */
-  {name:'年度合約收支分布',ctrl:'RptAnnualContractIncomeExpense'},
-  {name:'交易對象排行',ctrl:'RptCounterpartyRank'},          /* ✓ 已確認 */
+  {name:'專案合約追蹤表',ctrl:'RptProjectContract'},
+  {name:'退件分析報表',ctrl:'RptRejectionAnalysis'},
+  {name:'申請單位統計表',ctrl:'RptApplicantUnit'},
+  {name:'已停用使用者案件一覽表',ctrl:'RptDisabledUser'},
+  {name:'合約歸檔進度追蹤表',ctrl:'RptArchiveProgress'},
+  {name:'年度合約收支分布',ctrl:'RptAnnualRevenue'},
+  {name:'交易對象排行',ctrl:'RptCounterpartyRank'},
   {name:'合約到期統計表',ctrl:'RptContractExpiry'},
   {name:'專案結案統計表',ctrl:'RptProjectClosure'},
-  {name:'法務與申請人分析報表',ctrl:'RptLegalApplicantAnalysis'},
+  {name:'法務與申請人分析報表',ctrl:'RptLegalApplicant'},
   {name:'合約自動續約追蹤表',ctrl:'RptAutoRenewal'},
   {name:'合約歷程記錄追蹤表',ctrl:'RptContractHistory'},
-  {name:'自訂報表',ctrl:'RptCustomReport'}   /* ✓ 已確認 */
+  {name:'自訂報表',ctrl:'RptCustomReport'}
 ];
 function renderReports(){
   const base=(DATA.site||'https://dev-ilegl.think4u-tech.com/').replace(/\/+$/,'');
@@ -441,7 +442,7 @@ function renderReports(){
       <p>點任一報表，於新分頁直接開啟（需已登入系統）。共 ${REPORTS.length} 張報表。</p>
     </div>
     <div class="rpt-grid">${btns}</div>
-    <div class="rpt-note">⚠️ 部分網址為依報表名稱自動推測（<code>/Rpt英文/Index</code>），若連不到請對照系統實際網址，修正本檔 <code>REPORTS</code> 陣列的 <code>ctrl</code> 欄即可。</div>
+    <div class="rpt-note">網址 controller 名稱取自 dev 原始碼 <code>feat/demo0527</code>（已核對 view 標題）。需調整改本檔 <code>REPORTS</code> 陣列即可。</div>
   </div>`;
 }
 
