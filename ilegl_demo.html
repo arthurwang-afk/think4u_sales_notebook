@@ -121,6 +121,10 @@ body{font-family:var(--sans);color:var(--ink);background:var(--paper);
   color:#231800;font-weight:700;font-size:13.5px;padding:9px 16px;border-radius:9px;cursor:pointer;
   border:none;transition:.16s;text-decoration:none;white-space:nowrap}
 .login-bar .open:hover{background:var(--brass-2);transform:translateY(-1px)}
+.open-page{display:inline-flex;align-items:center;gap:7px;margin-top:14px;background:var(--brass);
+  color:#231800;font-weight:700;font-size:13.5px;padding:9px 16px;border-radius:9px;
+  border:none;transition:.16s;text-decoration:none;white-space:nowrap}
+.open-page:hover{background:var(--brass-2);transform:translateY(-1px)}
 .opening{background:var(--cream);border-left:4px solid var(--brass);border-radius:0 12px 12px 0;
   padding:14px 18px;font-size:14.5px;color:var(--ink);margin:18px 0 4px}
 .opening b{color:var(--brass)}
@@ -485,10 +489,32 @@ function renderMatrix(){
 
 /* ---------- page detail ---------- */
 function roleTag(k,mk){const r=roleById[k];return `<span class="rtag" onclick="go('role','${k}')"><i style="background:${rc(k)}"></i><span class="mk" style="color:${rc(k)}">${mk}</span>${esc(r.name)} ${esc(r.owner)}</span>`;}
+/* demo 頁面標題 → 系統實際頁面 controller（取自 feat/demo0527）。承辦人個人儀錶板=AdvDashboard 待你確認 */
+const PAGE_URLS={
+  '承辦人個人儀錶板':'AdvDashboard',
+  '法務收件與急件負荷報表':'RptLegalIntake',
+  '案件處理效率報表':'RptCaseEfficiency',
+  '專案合約追蹤表':'RptProjectContract',
+  '退件分析報表':'RptRejectionAnalysis',
+  '申請單位統計報表':'RptApplicantUnit',
+  '已停用使用者案件一覽表':'RptDisabledUser',
+  '合約歸檔進度追蹤表':'RptArchiveProgress',
+  '年度合約收支分布':'RptAnnualRevenue',
+  '交易對象排行':'RptCounterpartyRank',
+  '合約到期統計報表':'RptContractExpiry',
+  '專案結案統計報表':'RptProjectClosure',
+  '法務與申請人分析報表':'RptLegalApplicant',
+  '合約自動續約追蹤表':'RptAutoRenewal',
+  '合約的歷程記錄報告':'RptContractHistory',
+  '自訂報表（常用報表查詢）':'RptCustomReport',
+  '自訂報表（新增自訂報表）':'RptCustomReport',
+  '智能審約（AI 智能合約審閱）':'SmartContract'
+};
 function renderPage(id){
   const p=byId[id], idx=DATA.pages.findIndex(x=>x.id===id);
   const prev=DATA.pages[idx-1], next=DATA.pages[idx+1];
   const accent=p.primary.length?rc(p.primary[0]):'var(--brass)';
+  const pageUrl=PAGE_URLS[p.title]?(DATA.site||'https://dev-ilegl.think4u-tech.com/').replace(/\/+$/,'')+'/'+PAGE_URLS[p.title]+'/Index':'';
   const tags=[...p.primary.map(k=>roleTag(k,'◎')),...p.secondary.map(k=>roleTag(k,'○'))].join('');
   const pains=p.pains.map(t=>`<div class="li pain"><span class="mk">✕</span><span>${esc(t)}</span></div>`).join('');
   const gains=p.advantages.map(t=>`<div class="li gain"><span class="mk">✓</span><span>${esc(t)}</span></div>`).join('');
@@ -502,6 +528,7 @@ function renderPage(id){
         <h1>${esc(p.title)}</h1>
         <div class="crumb">${esc(p.breadcrumb)}</div>
         <div class="tags">${tags}<span class="typetag">${esc(p.typeLabel)}</span></div>
+        ${pageUrl?`<div><a class="open-page" href="${pageUrl}" target="_blank" rel="noopener" title="在系統開啟此頁">在系統開啟此頁 ↗</a></div>`:''}
       </div>
       <div class="doc-body">
         <div class="shot" onclick="zoom('${p.img}')"><img src="${p.img}" alt="${esc(p.title)}"><span class="hint">🔍 點擊放大</span></div>
