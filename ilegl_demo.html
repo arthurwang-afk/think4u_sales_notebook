@@ -415,7 +415,7 @@ const REPORTS=[
   {name:'法務收件與急件負荷報表',ctrl:'RptLegalWorkload'},
   {name:'案件處理效率報表',ctrl:'RptCaseEfficiency'},
   {name:'專案合約追蹤表',ctrl:'RptProjectContractTracking'},
-  {name:'退件分析報表',ctrl:'RptReturnAnalysis'},
+  {name:'退件分析報表',ctrl:'RptRejectionAnalysis'},   /* ✓ 已確認 */
   {name:'申請單位統計表',ctrl:'RptApplyUnitStatistics'},
   {name:'已停用使用者案件一覽表',ctrl:'RptDisabledUserCase'},
   {name:'合約歸檔進度追蹤表',ctrl:'RptArchiveProgress'},   /* ✓ 已確認 */
@@ -426,7 +426,7 @@ const REPORTS=[
   {name:'法務與申請人分析報表',ctrl:'RptLegalApplicantAnalysis'},
   {name:'合約自動續約追蹤表',ctrl:'RptAutoRenewal'},
   {name:'合約歷程記錄追蹤表',ctrl:'RptContractHistory'},
-  {name:'自訂報表',ctrl:'RptCustom'}
+  {name:'自訂報表',ctrl:'RptCustomReport'}   /* ✓ 已確認 */
 ];
 function renderReports(){
   const base=(DATA.site||'https://dev-ilegl.think4u-tech.com/').replace(/\/+$/,'');
