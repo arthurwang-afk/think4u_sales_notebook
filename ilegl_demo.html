@@ -410,7 +410,6 @@ function renderRole(key){
 /* ---------- reports view ---------- */
 /* controller 名稱均取自 dev 原始碼 feat/demo0527、已核對 view 標題。URL = DATA.site + ctrl + '/Index' */
 const REPORTS=[
-  {name:'智能審約（AI 智能合約審閱）',ctrl:'SmartContract'},
   {name:'紙本借閱申請統計表',ctrl:'View'},
   {name:'履約管理報表',ctrl:'RptRemind'},
   {name:'履約績效報表',ctrl:'FulfillPerformance'},
@@ -428,7 +427,8 @@ const REPORTS=[
   {name:'法務與申請人分析報表',ctrl:'RptLegalApplicant'},
   {name:'合約自動續約追蹤表',ctrl:'RptAutoRenewal'},
   {name:'合約歷程記錄追蹤表',ctrl:'RptContractHistory'},
-  {name:'自訂報表',ctrl:'RptCustomReport'}
+  {name:'自訂報表',ctrl:'RptCustomReport'},
+  {name:'智能審約（AI 智能合約審閱）',ctrl:'SmartContract'}
 ];
 function renderReports(){
   const base=(DATA.site||'https://dev-ilegl.think4u-tech.com/').replace(/\/+$/,'');
