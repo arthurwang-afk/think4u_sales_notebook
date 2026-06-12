@@ -121,10 +121,6 @@ body{font-family:var(--sans);color:var(--ink);background:var(--paper);
   color:#231800;font-weight:700;font-size:13.5px;padding:9px 16px;border-radius:9px;cursor:pointer;
   border:none;transition:.16s;text-decoration:none;white-space:nowrap}
 .login-bar .open:hover{background:var(--brass-2);transform:translateY(-1px)}
-.open-page{display:inline-flex;align-items:center;gap:7px;margin-top:14px;background:var(--brass);
-  color:#231800;font-weight:700;font-size:13.5px;padding:9px 16px;border-radius:9px;
-  border:none;transition:.16s;text-decoration:none;white-space:nowrap}
-.open-page:hover{background:var(--brass-2);transform:translateY(-1px)}
 .opening{background:var(--cream);border-left:4px solid var(--brass);border-radius:0 12px 12px 0;
   padding:14px 18px;font-size:14.5px;color:var(--ink);margin:18px 0 4px}
 .opening b{color:var(--brass)}
@@ -528,7 +524,7 @@ function renderPage(id){
         <h1>${esc(p.title)}</h1>
         <div class="crumb">${esc(p.breadcrumb)}</div>
         <div class="tags">${tags}<span class="typetag">${esc(p.typeLabel)}</span></div>
-        ${pageUrl?`<div><a class="open-page" href="${pageUrl}" target="_blank" rel="noopener" title="在系統開啟此頁">在系統開啟此頁 ↗</a></div>`:''}
+        ${pageUrl?`<div style="margin-top:14px"><a class="blink" href="${pageUrl}" target="_blank" rel="noopener" title="在系統開啟此頁">在系統開啟此頁 ↗</a></div>`:''}
       </div>
       <div class="doc-body">
         <div class="shot" onclick="zoom('${p.img}')"><img src="${p.img}" alt="${esc(p.title)}"><span class="hint">🔍 點擊放大</span></div>
